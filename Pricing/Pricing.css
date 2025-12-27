@@ -1,0 +1,273 @@
+:root{
+  --brand:#7364ff;
+  --accent:#7364ff;
+  --ink:#121212;
+  --muted:#555;
+  --line:rgba(0,0,0,0.08);
+  --card: #ffffff;
+  --bg:#fbfbff;
+  --radius:18px;
+  --container:1200px;
+}
+
+/* ====== PACKAGES ====== */
+.pk-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+.srv-packages{ padding:40px 0; }
+.pk-head{ text-align:center; margin-bottom:26px; }
+.pk-title {
+  font-size: 30px;
+  line-height: 1;
+  margin: 0;
+}
+.pk-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:22px; }
+.pk-card{
+  background: #f8f7ff; 
+  border-radius:10px; 
+  padding:24px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.04); 
+  position:relative; 
+  transition:.25s ease; 
+  display:flex; 
+  flex-direction:column; 
+  justify-content: space-between;
+  gap:14px;
+  box-shadow: 0 0 6px rgba(39, 39, 39, 0.315);
+
+}
+
+.pk-card:nth-child(2) {
+background: #efedff;
+box-shadow: 0 0 10px rgba(126, 90, 218, 0.692);
+}
+
+.pk-popular{ outline:2px solid rgba(115,100,255,0.25); }
+.pk-badge{
+  position:absolute; 
+  top:16px; 
+  right:16px; 
+  font-size:12px; 
+  padding:6px 10px; 
+  border-radius: 15px;
+  background:#7364ff; 
+  color:#ffffff; 
+  font-weight:600;
+}
+
+
+.pk-name{ 
+  font-size:14px; 
+  margin:6px 0 0; 
+  font-weight: 500; 
+}
+.pk-price {
+  margin: 25px 0 0;
+  font-size: 50px;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  line-height: 1;
+  color: #7364ff;
+}
+
+
+.pk-price-symbol {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 5px; /* keeps the $ aligned visually */
+}
+
+.pk-price-currency {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-left: 3px;
+  letter-spacing: 0.5px;
+}
+
+.pk-points{ margin:25px 0 8px; padding-left:18px; color:#404040; }
+.pk-points li{ margin: 15px 0; }
+
+
+.pktp-dlvry {
+  margin-top: 25px;
+}
+
+.pktp-dlvry-list {
+  padding-left:18px;
+  color:#404040;
+}
+
+.pktp-dlvry-list li {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+
+
+.pkbottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.pk-meta{ 
+  display:flex; 
+  flex-direction: column; 
+  gap:14px; 
+  flex-wrap:wrap; 
+  color:var(--muted); 
+  font-size:14px; 
+}
+.pk-meta span {
+  line-height: 0.8;
+}
+.pk-note {
+  text-align: center;
+  margin:18px 0 30px;
+  color:#666;
+  font-size:14px; }
+
+.pk-card-bttn {
+  border: none;
+  padding: 15px 0;
+  border-radius: 4px;
+  background-color: #7364ff;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: 'SUSE', sans-serif;
+  font-weight: 600;
+
+   /* NEW: smooth hover */
+  transition:
+    transform .28s cubic-bezier(.2,.7,.2,1),
+    box-shadow .28s cubic-bezier(.2,.7,.2,1),
+    background-color .28s ease;
+    cursor: pointer;
+}
+
+.pk-card-bttn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(115,100,255,.22);
+  background-color: #121212;
+}
+
+.pk-card-bttn:active{
+  transform: translateY(-1px) scale(.99);
+  box-shadow: 0 6px 14px rgba(115,100,255,.20);
+}
+
+
+/* motion-sensitive users */
+@media (prefers-reduced-motion: reduce){
+  .pk-card-bttn{ transition: none; }
+}
+
+.pk-revision {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.pk-rrvsn-icon {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  background: #666;          /* ⬅ change this to recolor the arrow */
+  -webkit-mask: url("Images/Icons/refresh.svg") no-repeat center/contain;
+          mask: url("Images/Icons/refresh.svg") no-repeat center/contain;
+}
+.pk-tmln-icon {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  background: #666;          /* ⬅ change this to recolor the arrow */
+  -webkit-mask: url("Images/Icons/clock-three.svg") no-repeat center/contain;
+          mask: url("Images/Icons/clock-three.svg") no-repeat center/contain;
+}
+
+
+
+.pk-cta-note {
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FIX: Match landing page drawer input (correct for service page) */
+.site-panel .panel-form input {
+  width: 100% !important;
+  height: 42px !important;
+  padding: 0 12px !important;
+  border: 1px solid rgba(0,0,0,.12) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  font: inherit !important;
+}
+
+.site-panel .panel-form button,
+.site-panel .panel-submit {
+  height: 42px !important;
+  width: 46px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 10px !important;
+}
+
+
+/* FIX: Input + Arrow button same row (match landing page) */
+.site-panel .panel-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.site-panel .panel-form-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.site-panel .panel-form-row input {
+  flex: 1 !important;       /* fills full width */
+}
+
+.site-panel .panel-form-row button,
+.site-panel .panel-submit {
+  flex-shrink: 0 !important;
+}
+
+
+

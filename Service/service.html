@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ================= HEAD (START) ================= -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Performance: font preconnects -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../Index.css">
+  <link rel="stylesheet" href="../Responsive.css">
+  <link rel="stylesheet" href="service.css">
+  <link rel="stylesheet" href="service-responsive.css">
+
+  <link rel="icon" type="image/png" href="../Images/Favicon.png">
+  <title>HUE SIXTEEN — Services</title>
+  <!-- ================= HEAD (END) ================= -->
+</head>
+<body>
+
+  <!-- =================== HERO (WRAPPER) (START) =================== -->
+  <section class="hero" aria-label="Intro">
+    <!-- ============== HEADER (START) ============== -->
+    <header class="header">
+      <div class="container_nav">
+        <!-- Brand -->
+        <a href="../index.html" class="brandtext" aria-label="Hue Sixteen — Home">
+          <img src="../Images/Logo.png" class="headerlogo" alt="Hue Sixteen logo">
+          HUE SIXTEEN
+        </a>
+
+        <!-- Primary menu (desktop) -->
+        <nav id="primary-nav" class="menu" aria-label="Primary navigation">
+          <a href="../index.html" class="nav-link" data-text="Home"><span class="t1">Home</span></a>
+          <a href="./service.html" class="nav-link" data-text="Services" aria-current="page"><span class="t1">Services</span></a>
+          <a href="../Portfolio/Portfolio.html" class="nav-link" data-text="Portfolio"><span class="t1">Portfolio</span></a>
+          <a href="../Pricing/Pricing.html" class="nav-link" data-text="Pricing"><span class="t1">Pricing</span></a>
+          <a href="../About/About.html" class="nav-link" data-text="About"><span class="t1">About</span></a>
+        </nav>
+
+        <!-- Right controls -->
+        <div class="header-actions">
+          <button class="panel-toggle" id="infoToggle" type="button"
+                  aria-controls="sitePanel" aria-expanded="false" aria-label="Open info panel">
+            <span class="icon-app" aria-hidden="true"></span>
+          </button>
+
+          <!-- HAMBURGER: hidden on desktop (Index.css), shown on mobile (Responsive.css) -->
+          <button class="menu-toggle" id="menuToggle" type="button"
+                  aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+            <span class="icon-menu" aria-hidden="true"></span>
+          </button>
+
+          <a class="hiremebtn hide-mobile open-lead" id="ctaTalk" aria-label="Start a project">
+            <span class="btn-label">Let’s Talk</span>
+            <span class="icon icon-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- ============== HEADER (END) ============== -->
+
+    <!-- ============== HERO INNER (START) ============== -->
+    <section class="hero-inner" aria-label="Brand intro">
+      <h1 class="hero-title">
+        <span class="line slide-up">Our Design and Strategy</span>
+        <span class="line slide-up">that
+          <span class="swash slide-up">Drive Growth</span>
+        </span>
+      </h1>
+      <p class="hero-sub">From strategic thinking to modern visual design, we create purposeful solutions that help brands communicate clearly and grow with confidence.</p>
+    </section>
+    <!-- ============== HERO INNER (END) ============== -->
+  </section>
+  <!-- =================== HERO (WRAPPER) (END) =================== -->
+
+
+
+<!-- ============== LEAD POPUP BAR (START) ============== -->
+<div id="leadOverlay" class="lead-overlay" hidden></div>
+
+<aside id="leadModal" class="lead-modal" aria-hidden="true" role="dialog" aria-labelledby="leadTitle">
+  <button type="button" class="lead-close" id="leadClose" aria-label="Close">&times;</button>
+
+  <div class="lead-content">
+    <h3 id="leadTitle" class="lead-title">Start a quick conversation</h3>
+
+    <form id="leadForm" class="lead-form" novalidate>
+      <!-- Hidden honeypot -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+      <!-- Name -->
+      <div class="field">
+        <label for="leadName" class="field-label">Name</label>
+        <input id="leadName" name="name" type="text" placeholder="Your name" required>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label for="leadEmail" class="field-label">Email</label>
+        <input id="leadEmail" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="field">
+        <label for="leadWhats" class="field-label">WhatsApp Number (Required)</label>
+        <input id="leadWhats" name="whatsapp" type="tel" placeholder="+8801XXXXXXXXX"
+               inputmode="tel" pattern="^\+?[0-9\s\-()]{8,20}$" required>
+      </div>
+
+      <!-- Service -->
+      <div class="field">
+        <label for="leadService" class="field-label">Select your Service</label>
+        <select id="leadService" name="service" required>
+          <option value="" selected disabled>Select your Service</option>
+          <option>Logo & Brand Identity</option>
+          <option>UI/UX Design</option>
+          <option>Packaging Design</option>
+          <option>Social Media Design</option>
+          <option>Realistic Mockups</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Budget -->
+      <div class="field">
+        <label for="leadBudget" class="field-label">Select your Budget (USD)</label>
+        <select id="leadBudget" name="budget" required>
+          <option value="" selected disabled>Select your budget</option>
+          <option value="100">$100</option>
+          <option value="250">$250</option>
+          <option value="500">$500</option>
+          <option value="1000">$1000</option>
+          <option value="2000">$2000</option>
+          <option value="custom">Custom</option>
+        </select>
+
+        <div id="customBudgetWrap" class="custom-budget" hidden>
+          <label for="customBudget" class="sr-only">Custom budget</label>
+          <div class="currency">
+            <input id="customBudget" name="customBudget" type="number" placeholder="Amount">
+            <span class="suffix">USD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Method -->
+      <div class="field">
+        <label for="leadContact" class="field-label">Preferred Contact Method</label>
+        <select id="leadContact" name="contact" required>
+          <option value="" selected disabled>Select preferred channel</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="email">Email</option>
+        </select>
+      </div>
+
+      <!-- Description -->
+      <div class="field field-full">
+        <label for="leadDesc" class="field-label">Project Description</label>
+        <textarea id="leadDesc" name="description" rows="4" placeholder="Write a short overview…" required></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="actions">
+        <button type="submit" class="lead-submit">
+          Submit <span class="icon icon-arrow"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+</aside>
+
+<!-- Toast -->
+<div id="leadToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  Thanks — we received your request!
+</div>
+<!-- ============== LEAD POPUP BAR (END) ============== -->
+
+
+
+
+  <!-- ============== RIGHT INFO DRAWER (START) ============== -->
+  <aside id="sitePanel" class="site-panel" aria-hidden="true">
+    <div class="panel-head">
+      <a href="../index.html" class="panel-brand-text" aria-label="Hue Sixteen — Home">
+        <img src="../Images/Logo.png" class="panel-logo" alt="Hue Sixteen logo">
+        HUE SIXTEEN
+      </a>
+      <button class="panel-close" id="panelClose" type="button" aria-label="Close panel">&times;</button>
+    </div>
+
+    <div class="panel-body">
+      <h3 class="panel-title">We are a Modern Digital Brand Agency.</h3>
+
+      <section class="panel-block" aria-label="Office address">
+        <h4 class="panel-sub">Dhaka</h4>
+        <p class="panel-text">
+          617/312 Delpara, Sharifbag, Fatullah,<br>
+          Kutubpur-1421, Narayanganj.
+        </p>
+      </section>
+
+      <section class="panel-block" aria-label="Contact methods">
+        <div class="panel-row">
+          <img src="../Images/Icons/Email.svg" class="panel-ico" alt="Email icon">
+          <div>
+            <div class="muted">Send Us Mail</div>
+            <a href="mailto:info@example.com" class="panel-link">gfxhue16@gmail.com</a>
+          </div>
+        </div>
+        <div class="panel-row">
+          <img src="../Images/Icons/WhatsApp.svg" class="panel-ico" alt="WhatsApp icon">
+          <div>
+            <div class="muted">Send Message on WhatsApp</div>
+            <a href="https://wa.me/8801600140898" rel="noopener" class="panel-link">+8801600140898</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-block">
+  <h4 class="panel-sub">Subscribe To Get Free Update.</h4>
+
+  <form class="panel-form" method="POST">
+    <div class="panel-form-row">
+      <input type="email" placeholder="Enter Email" required>
+      <button type="submit" class="panel-submit">
+        <span class="icon icon-arrow"></span>
+      </button>
+    </div>
+  </form>
+
+  <p class="muted small">
+    By subscribing, you agree to our <a href="#" class="panel-link">privacy policy</a>.
+  </p>
+</section>
+
+
+
+
+
+      <section class="panel-block social-row" aria-label="Social links">
+        <a href="https://www.facebook.com/huesixteen" aria-label="Facebook"><img src="../Images/Icons/facebook.svg" alt="Facebook"></a>
+        <a href="https://www.linkedin.com/in/gximdalfaysal" aria-label="LinkedIn"><img src="../Images/Icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/gximdalfaysal" aria-label="Instagram"><img src="../Images/Icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@huesixteen" aria-label="YouTube"><img src="../Images/Icons/youtube.svg" alt="YouTube"></a>
+      </section>
+    </div>
+  </aside>
+  <div id="panelOverlay" class="panel-overlay" hidden></div>
+  <!-- ============== RIGHT INFO DRAWER (END) ============== -->
+
+  <!-- ============== LEFT MENU DRAWER (MOBILE) (START) ============== -->
+  <aside id="mobileMenu" class="menu-drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <img src="../Images/HeaderLogo2.png" class="drawer-logo" alt="Hue Sixteen logo">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="drawer-body" aria-label="Mobile navigation">
+      <a href="../index.html" class="drawer-link">Home</a>
+      <a href="./Service.html" class="drawer-link" aria-current="page">Services</a>
+      <a href="../Portfolio/Portfolio.html" class="drawer-link">Portfolio</a>
+      <a href="../Pricing/Pricing.html" class="drawer-link">Pricing</a>
+      <a href="../About/About.html" class="drawer-link">About</a>
+      <a href="../Privacy-Policy/Privacy&Policy.html" class="drawer-link">Privacy & Policy</a>
+      <a href="../Terms-Conditions/Terms&Conditions.html" class="drawer-link">Terms & Conditions</a>
+
+      <a href="../Pricing/Pricing.html#start" class="hiremebtn drawer-cta" id="drawerCta">
+        <span class="btn-label">Let’s Talk</span>
+        <span class="icon icon-arrow" aria-hidden="true"></span>
+      </a>
+    </nav>
+  </aside>
+  <div id="menuOverlay" class="menu-overlay" hidden></div>
+  <!-- ============== LEFT MENU DRAWER (MOBILE) (END) ============== -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================= SERVICES (from Home) ================= -->
+<section id="services" class="services" aria-labelledby="services-title">
+  <div class="container">
+
+    <!-- Services Grid -->
+    <div class="srvscsncrt slide-up" role="list">
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-logo" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Logo & <br> Brand Identity</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-mockup" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Realistic <br> 3D Mockups</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-stationery" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Stationery <br> & Print Design</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-illustration" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Art & <br> Illustration</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-ads" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Social Media <br> & Ads Design</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="longline-arrow">
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 20 120" class="arrow-svg-vertical">
+    <!-- Top → Bottom line -->
+    <path d="M10 10 V100" stroke="#7364ff" stroke-width="3" fill="none"/>
+    <!-- Bottom arrowhead -->
+    <path d="M5 100 L10 110 L15 100 Z" fill="#7364ff"/>
+  </svg>
+</div>
+
+
+
+<section class="service-details" id="service-page-area">
+      <div class="srvdtls-container">
+        <div class="srvdtlscrdscsn">
+
+          <div class="srvdtls-card">
+          <span class="srvdtls-card-key">Logo & Brand</span>
+        <h2>Your Brand Deserves to Be Remembered.</h2>
+        <p>Your brand is more than a logo — it’s the face of your business. A thoughtful identity builds recognition, trust, and connection. When your visuals speak clearly, your brand becomes unforgettable.</p>
+        <h3>What Branding Can Do for You?</h3>
+        <ul>
+          <li>Builds trust and makes your business look professional.</li>
+          <li>Helps you stand out across digital and print platforms.</li>
+          <li>Turns customers into loyal followers.</li>
+          <li>Adds long-term value to your business.</li>
+          <li>Tells your story before you say a word.</li>
+        </ul>
+        <a href="../Pricing/pricing.html#logobrand" class="srvdtls-card-bttn">
+          <span class="srvdtls-card-bttn-text">Learn more</span>
+          <span class="srvdtls-card-bttn-icon"></span>
+        </a>
+      </div>
+
+
+      <div class="srvdtls-card">
+          <span class="srvdtls-card-key">Mockups</span>
+        <h2>Bring Your Designs to Life with Realistic Mockups</h2>
+        <p>
+          Mockups bring your ideas to life with realism and impact. They turn flat designs into professional visuals that show how your product or logo will appear — adding clarity, trust, and emotion.
+
+        </p>
+        <h3>What Mockups Can Do for You?</h3>
+        <ul>
+          <li>Showcase your designs in realistic, professional settings.</li>
+          <li>Impress clients with lifelike product and packaging previews.</li>
+          <li>Save time and resources compared to physical samples.</li>
+          <li>Build consistency across digital and print brand materials.</li>
+          <li>Strengthen brand presentation and boost customer trust.</li>
+        </ul>
+        <a href="../Pricing/pricing.html#psdmockup" class="srvdtls-card-bttn">
+          <span class="srvdtls-card-bttn-text">Learn more</span>
+          <span class="srvdtls-card-bttn-icon"></span>
+        </a>
+      </div>
+
+
+      <div class="srvdtls-card">
+          <span class="srvdtls-card-key">Stationery & Print</span>
+        <h2>Bring Your Brand to Every Touchpoint</h2>
+        <p>Stationery and print materials make your brand tangible and memorable. From business cards to packaging, every piece tells your story with consistency, quality, and care — leaving a lasting professional impression.</p>
+        <h3>What Print Design Can Do for You?</h3>
+        <ul>
+          <li>Strengthen brand identity across all physical media.</li>
+          <li>Build trust with polished, professional materials.</li>
+          <li>Create cohesive brand experiences customers remember.</li>
+          <li>Add depth and credibility to your visual presence.</li>
+          <li>Turn everyday items into brand ambassadors.</li>
+        </ul>
+        <a href="#" class="srvdtls-card-bttn">
+          <span class="srvdtls-card-bttn-text">Learn more</span>
+          <span class="srvdtls-card-bttn-icon"></span>
+        </a>
+      </div>
+
+
+      <div class="srvdtls-card">
+          <span class="srvdtls-card-key">Art & Illustration</span>
+        <h2>Add Character and Emotion to Your Brand</h2>
+        <p>Art and illustration give your visuals a unique voice. From expressive artwork to detailed brand elements, they add creativity, emotion, and personality that help your brand stand out and connect deeply.</p>
+        <h3>What Illustration Can Do for You?</h3>
+        <ul>
+          <li>Bring ideas and stories to life through visuals.</li>
+          <li>Add originality and depth to brand identity.</li>
+          <li>Create emotional connections with your audience.</li>
+          <li>Strengthen visual storytelling across platforms.</li>
+          <li>Make your brand instantly recognizable.</li>
+        </ul>
+        <a href="#" class="srvdtls-card-bttn">
+          <span class="srvdtls-card-bttn-text">Learn more</span>
+          <span class="srvdtls-card-bttn-icon"></span>
+        </a>
+      </div>
+
+      <div class="srvdtls-card">
+          <span class="srvdtls-card-key">Social Media & Ads</span>
+        <h2>Make Every Post Speak for Your Brand</h2>
+        <p>Social media and ad designs turn attention into action. With the right visuals and message, they help your brand connect, engage, and grow — keeping your audience inspired and loyal.</p>
+        <h3>What Social Media Design Can Do for You?</h3>
+        <ul>
+          <li>Build a strong, consistent brand presence online.</li>
+          <li>Increase engagement and reach on every platform.</li>
+          <li>Turn visuals into measurable business results.</li>
+          <li>Communicate your message clearly and quickly.</li>
+          <li>Keep your audience connected to your brand.</li>
+        </ul>
+        <a href="#" class="srvdtls-card-bttn">
+          <span class="srvdtls-card-bttn-text">Learn more</span>
+          <span class="srvdtls-card-bttn-icon"></span>
+        </a>
+      </div>
+
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+<section class="wrkprcstext-srvcta">
+  <div class="wrkprcstext-srvcta-container">
+    <!-- Bottom CTA -->
+    <div class="srvbttm slide-up" aria-labelledby="srvbttm-title">
+      <h2 id="srvbttm-title" class="srvbttm-title">
+        The Process Behind <br> Every <span class="srvbttm-italic">Great Design</span>
+      </h2>
+
+      <div class="srvbttm-btns">
+        <a class="srvbttm-btn srvbttm-hrme open-lead" aria-label="Start a Journey">
+          <span class="srvbttm-btntxt">Start a Procjet</span>
+          <span class="srvbttm-icon" aria-hidden="true"></span>
+        </a>
+
+        <!-- on this page, link to itself -->
+        <a class="srvbttm-btn srvbttm-slsn" href="../Portfolio/Portfolio.html" aria-label="Explore all Solutions">
+          <span class="srvbttm-btntxt">See Case Studies</span>
+          <span class="srvbttm-icon srvbttm-icon2" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= WORK PROCESS (from Home) ================= -->
+<section class="work-process">
+  <div class="wrkp-container">
+    <div class="wrkp-scsncrt">
+      <!-- Step 01 -->
+      <div class="wrkp-card">
+        <span class="wrkpcrd1-step">Step 01</span>
+        <div class="wrkpcrd-shape1 wrkpcrd-type1">
+          <span class="wrkpcrd1-icon"></span>
+          <h4 class="wrkpcrd1-title">Research <br> & Discovery</h4>
+        </div>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="wrkp-card">
+        <div class="wrkpcrd-shape2 wrkpcrd-type2">
+          <h4 class="wrkpcrd2-title"> Plan <br> Strategy </h4>
+          <span class="wrkpcrd2-icon wrkpcard2-icon"></span>
+        </div>
+        <span class="wrkpcrd2-step">Step 02</span>
+      </div>
+
+      <!-- Step 03 -->
+      <div class="wrkp-card">
+        <span class="wrkpcrd1-step">Step 03</span>
+        <div class="wrkpcrd-shape3 wrkpcrd-type1">
+          <span class="wrkpcrd3-icon"></span>
+          <h4 class="wrkpcrd1-title">Build <br> Design </h4>
+        </div>
+      </div>
+
+      <!-- Step 04 -->
+      <div class="wrkp-card">
+        <div class="wrkpcrd-shape4 wrkpcrd-type2">
+          <h4 class="wrkpcrd2-title">Scale <br> Growth</h4>
+          <span class="wrkpcrd4-icon wrkpcard2-icon"></span>
+        </div>
+        <span class="wrkpcrd2-step">Step 04</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS BOX (from Home) ================= -->
+<section class="toolsbox" aria-label="Tools we use">
+  <div class="tlbx-container">
+    <div class="tools-head">
+      <span class="tlbx-ttllne" aria-hidden="true"></span>
+      <h2 class="tools-title">
+        Tools We Use to Build <span class="tools-italic"> Better Brands</span>
+      </h2>
+      <span class="tlbx-ttllne" aria-hidden="true"></span>
+    </div>
+
+    <div class="tools-logos">
+      <!-- Adobe Photoshop -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="../Images/Icons/ToolBox/photoshop.svg" alt="Adobe Photoshop">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Adobe Photoshop
+            <span class="tlbxlogo-info">Editing Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Adobe Illustrator -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="../Images/Icons/ToolBox/illustrator.svg" alt="Adobe Illustrator">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Adobe Illustrator
+            <span class="tlbxlogo-info">Design Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- CLO 3D -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="../Images/Icons/ToolBox/clo3d.png" alt="CLO 3D">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">CLO 3D
+            <span class="tlbxlogo-info">Rendering Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Figma -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="../Images/Icons/ToolBox/figma.svg" alt="Figma">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Figma
+            <span class="tlbxlogo-info">Design Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Adobe InDesign -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="../Images/Icons/ToolBox/indesign.svg" alt="Adobe InDesign">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Adobe InDesign
+            <span class="tlbxlogo-info">Design Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Adobe Lightroom (your asset points to Blender.png in Home; keeping same) -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="../Images/Icons/ToolBox/Blender.png" alt="Adobe Lightroom">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Blender
+            <span class="tlbxlogo-info">3D Rendering Tool</span>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ================== FOOTER (START) ================== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="ftr-top">
+        <!-- Brand Info Start -->
+        <div class="ftrtop-brndinfo">
+          <div class="ftrtop-brndlogo">
+            <img src="../Images/Logo.png" alt="Hue Sixteen logo">
+            <h1>Hue Sixteen</h1>
+          </div>
+          <p>We craft high-performance digital experiences that drive real business results.</p>
+          <div class="ftrtop-binf-sclicn">
+            <a href="#"><span class="ftrtop-binf-fb ftrtop-binf-sclicn-hvr"></span></a>
+            <a href="#"><span class="ftrtop-binf-ig ftrtop-binf-sclicn-hvr"></span></a>
+            <a href="#"><span class="ftrtop-binf-in ftrtop-binf-sclicn-hvr"></span></a>
+            <a href="#"><span class="ftrtop-binf-yt ftrtop-binf-sclicn-hvr"></span></a>
+          </div>
+        </div>
+        <!-- Brand Info End -->
+
+        <div class="qcklnk-svr">
+          <!-- Quick Link Start -->
+          <div class="ftrtop-qcklnk">
+            <h3>Quick Links</h3>
+            <div class="ftrtop-qcklnk-texts">
+              <a href="../index.html"><span>Home</span></a>
+              <a href="../About/About.html"><span>About</span></a>
+              <a href="../Portfolio/Portfolio.html"><span>Portfolio</span></a>
+              <a href="../Pricing/Pricing.html"><span>Contact</span></a>
+              <a href="../Privacy-Policy/Privacy&Policy.html"><span>Privacy & Policy</span></a>
+              <a href="../Terms-Conditions/Terms&Conditions.html"><span>Terms & Conditions</span></a>
+            </div>
+          </div>
+          <!-- Quick Link End -->
+
+          <!-- Service Start -->
+          <div class="ftrtop-srv">
+            <h3>Service</h3>
+            <div class="ftrtop-srv-texts">
+              <a href="#"><span>Logo & Brand</span></a>
+              <a href="#"><span>PSD Mockups</span></a>
+              <a href="#"><span>Stationery</span></a>
+              <a href="#"><span>Illustration</span></a>
+              <a href="#"><span>Social Ads</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- Service End -->
+
+        <!-- Subscribe Start -->
+        <div class="ftrtop-subscribe">
+          <h1> Get the Latest Inspiration </h1>
+          <form class="fttpsbcrb-form" action="#" method="post">
+            <input id="fttpsbcrb-email" type="email" placeholder="Enter your email *" required>
+            <button type="submit">Subscribe Now</button>
+          </form>
+        </div>
+        <!-- Subscribe End -->
+      </div>
+      <!-- Footer Top End -->
+
+      <!-- Footer Bottom Start -->
+      <div class="ftr-bottom">
+        <p>© 2025 HUE SIXTEEN. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- ================== FOOTER (END) ================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- EmailJS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("cy-xB77TUrofN4z1z");
+</script>
+
+  <script src="../Index.js" defer></script>
+  <script src="service.js" defer></script>
+
+</body>
+</html>

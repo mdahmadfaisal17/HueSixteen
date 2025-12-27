@@ -1,0 +1,357 @@
+
+<!-- ============= VIDEO SECTION (START) ============= -->
+  <section class="video-trust" aria-label="Hero video">
+    <div class="video-wrapper" id="videoBox">
+      <video id="heroVideo" autoplay muted playsinline preload="auto" loop>
+        <source src="https://res.cloudinary.com/dpqvcxh9d/video/upload/v1762610240/HeroVideo_dtijzo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Overlay icons -->
+      <div class="video-icon" id="videoIcon">
+        <svg id="playIcon" viewBox="0 0 24 24">
+          <polygon points="8,5 19,12 8,19" fill="white" />
+        </svg>
+        <svg id="pauseIcon" viewBox="0 0 24 24">
+          <rect x="6" y="5" width="4" height="14" fill="white" />
+          <rect x="14" y="5" width="4" height="14" fill="white" />
+        </svg>
+      </div>
+
+      <!-- Custom controls -->
+      <div class="video-controls" id="videoControls">
+        <button id="volumeBtn" class="ctrl-btn" type="button" aria-label="Mute / Unmute">
+          <img src="Images/Icons/Mute.svg" alt="Mute" id="volumeIcon">
+        </button>
+
+        <input type="range" id="progressBar" value="0" min="0" max="100" />
+
+        <span id="timeLabel" class="time-label">0:00 / 0:00</span>
+
+        <button id="fullscreenBtn" class="ctrl-btn" type="button" aria-label="Fullscreen">⛶</button>
+      </div>
+    </div>
+  </section>
+  <!-- ============= VIDEO SECTION (END) ============= -->
+
+
+
+
+
+
+
+
+
+
+/* ================== VIDEO SECTION (START) ================== */
+.video-trust {
+  max-width: var(--container, 1200px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-inline: 20px;
+}
+
+.video-wrapper {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  position: relative;
+  pointer-events: auto;
+  margin: 40px 0;
+  border: 6px solid rgba(115, 100, 255, 0.2);
+  cursor: pointer;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Play / Pause overlay icon --- */
+.video-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.video-icon svg {
+  width: 80px;
+  height: 80px;
+  display: none;
+  background-color: #000000a2;
+  border-radius: 50%;
+  padding: 10px;
+  transition: transform 0.25s ease-in-out;
+}
+
+.video-icon.show {
+  opacity: 1;
+}
+
+.video-icon.show svg {
+  display: block;
+  transform: scale(1.1);
+}
+
+/* --- Controls --- */
+.video-controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.video-wrapper:hover .video-controls,
+.video-wrapper:focus-within .video-controls {
+  opacity: 1;
+}
+
+.ctrl-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* volume icon */
+#volumeBtn img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+  display: block;
+}
+
+/* progress bar */
+#progressBar {
+  flex: 1;
+  appearance: none;
+  height: 4px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+#progressBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffb910;
+  cursor: pointer;
+}
+
+.time-label {
+  color: #fff;
+  font-size: 13px;
+  white-space: nowrap;
+}
+/* ================== VIDEO SECTION (END) ================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============   VIDEO (START) ============ */
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("heroVideo");
+  const box = document.getElementById("videoBox");
+  const icon = document.getElementById("videoIcon");
+  const playIcon = document.getElementById("playIcon");
+  const pauseIcon = document.getElementById("pauseIcon");
+
+  const volumeBtn = document.getElementById("volumeBtn");
+  const volumeIcon = document.getElementById("volumeIcon");
+  const progressBar = document.getElementById("progressBar");
+  const timeLabel = document.getElementById("timeLabel");
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+  // 1) click anywhere to play/pause
+  box.addEventListener("click", function (e) {
+    // controls e click korle toggle hobe na
+    if (e.target.closest(".video-controls")) return;
+
+    togglePlay();
+  });
+
+  function togglePlay() {
+    if (video.paused) {
+      video.play();
+      showIcon("play");
+    } else {
+      video.pause();
+      showIcon("pause");
+    }
+  }
+
+  function showIcon(type) {
+    playIcon.style.display = "none";
+    pauseIcon.style.display = "none";
+
+    if (type === "play") {
+      playIcon.style.display = "block";
+    } else {
+      pauseIcon.style.display = "block";
+    }
+
+    icon.classList.add("show");
+    setTimeout(() => {
+      icon.classList.remove("show");
+    }, 500);
+  }
+
+  // 2) volume toggle (svg)
+  volumeBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    video.muted = !video.muted;
+
+    if (video.muted) {
+      volumeIcon.src = "Images/Icons/Mute.svg";
+      volumeIcon.alt = "Muted";
+    } else {
+      volumeIcon.src = "Images/Icons/Volume.svg";
+      volumeIcon.alt = "Volume On";
+    }
+  });
+
+  // 3) time/progress update
+  video.addEventListener("timeupdate", function () {
+    if (!video.duration) return;
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.value = percent;
+    updateTimeLabel();
+  });
+
+  // 4) seek
+  progressBar.addEventListener("input", function (e) {
+    if (!video.duration) return;
+    const seekTime = (progressBar.value / 100) * video.duration;
+    video.currentTime = seekTime;
+  });
+
+  // 5) fullscreen
+  fullscreenBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    if (!document.fullscreenElement) {
+      box.requestFullscreen && box.requestFullscreen();
+    } else {
+      document.exitFullscreen && document.exitFullscreen();
+    }
+  });
+
+  // 6) keyboard shortcuts
+  document.addEventListener("keydown", function (e) {
+    // input, textarea, contenteditable hole ignore
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === "input" || tag === "textarea") return;
+
+    switch (e.key.toLowerCase()) {
+      case " ": // space
+      case "k":
+        e.preventDefault();
+        togglePlay();
+        break;
+      case "m":
+        video.muted = !video.muted;
+        if (video.muted) {
+          volumeIcon.src = "Images/Icons/Mute.svg";
+        } else {
+          volumeIcon.src = "Images/Icons/Volume.svg";
+        }
+        break;
+      case "f":
+        if (!document.fullscreenElement) {
+          box.requestFullscreen && box.requestFullscreen();
+        } else {
+          document.exitFullscreen && document.exitFullscreen();
+        }
+        break;
+      case "arrowright":
+        video.currentTime = Math.min(video.currentTime + 5, video.duration || video.currentTime);
+        break;
+      case "arrowleft":
+        video.currentTime = Math.max(video.currentTime - 5, 0);
+        break;
+    }
+  });
+
+  // helper: time format
+  function updateTimeLabel() {
+    const cur = formatTime(video.currentTime);
+    const dur = formatTime(video.duration);
+    timeLabel.textContent = `${cur} / ${dur}`;
+  }
+
+  function formatTime(sec) {
+    if (isNaN(sec)) return "0:00";
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ":" + (s < 10 ? "0" + s : s);
+  }
+
+  // video load hole first time update
+  video.addEventListener("loadedmetadata", updateTimeLabel);
+});
+/* ============   VIDEO (END) ============ */
+
+
+
+
+
+
+
+
+
+bottom er code holo about us er page er jonno
+
+
+
+<!-- ============= VIDEO SECTION (START) ============= -->
+<section class="video-trust" aria-label="Hero video">
+  <div class="video-wrapper">
+    <video id="heroVideo" autoplay muted playsinline preload="auto" loop>
+      <source src="../Video/HeroVideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+<!-- ============= VIDEO SECTION (END) ============= -->
+
+
+
+
+
+
+
+
+
+
+
+
+

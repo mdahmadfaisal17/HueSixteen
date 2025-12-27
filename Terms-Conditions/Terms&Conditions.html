@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ================= HEAD (START) ================= -->
+ <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../Index.css">
+  <link rel="stylesheet" href="../Responsive.css">
+  <link rel="stylesheet" href="Terms.css">
+
+  <link rel="icon" type="image/png" href="../Images/Favicon.png">
+  <title>HUE SIXTEEN — Agency</title>
+  <!-- ================= HEAD (END) ================= -->
+</head>
+<body>
+<!-- ============ PAGE WRAPPER (START) ============ -->
+
+  <!-- =================== HERO (WRAPPER) (START) =================== -->
+  <section class="hero" aria-label="Intro">
+    <!-- ============== HEADER (START) ============== -->
+    <header class="header">
+      <div class="container_nav">
+        <!-- Brand -->
+        <a href="../index.html" class="brandtext" aria-label="Hue Sixteen — Home">
+          <img src="../Images/Logo.png" class="headerlogo" alt="Hue Sixteen logo">
+          HUE SIXTEEN
+        </a>
+
+        <!-- Primary menu (desktop) -->
+        <nav id="primary-nav" class="menu" aria-label="Primary navigation">
+          <a href="../index.html" class="nav-link" data-text="Home" aria-current="page">
+            <span class="t1">
+              Home
+            </span>
+          </a>
+          <a href="../Service/service.html" class="nav-link" data-text="Services"><span class="t1">Services</span></a>
+          <a href="../Portfolio/portfolio.html" class="nav-link" data-text="Portfolio"><span class="t1">Portfolio</span></a>
+          <a href="../Pricing/pricing.html" class="nav-link" data-text="Pricing"><span class="t1">Pricing</span></a>
+          <a href="../About/about.html" class="nav-link" data-text="About"><span class="t1">About</span></a>
+        </nav>
+
+        <!-- Right controls -->
+        <div class="header-actions">
+          <button class="panel-toggle" id="infoToggle" type="button"
+                  aria-controls="sitePanel" aria-expanded="false" aria-label="Open info panel">
+            <span class="icon-app" aria-hidden="true"></span>
+          </button>
+
+          <!-- HAMBURGER: hidden on desktop (Index.css), shown on mobile (Responsive.css) -->
+          <button class="menu-toggle" id="menuToggle" type="button"
+                  aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+            <span class="icon-menu" aria-hidden="true"></span>
+          </button>
+
+          <a class="hiremebtn hide-mobile open-lead" id="ctaTalk" aria-label="Start a project">
+            <span class="btn-label">Let’s Talk</span>
+            <span class="icon icon-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- ============== HEADER (END) ============== -->
+
+
+
+
+
+
+
+
+
+
+<!-- ============== LEAD POPUP BAR (START) ============== -->
+<div id="leadOverlay" class="lead-overlay" hidden></div>
+
+<aside id="leadModal" class="lead-modal" aria-hidden="true" role="dialog" aria-labelledby="leadTitle">
+  <button type="button" class="lead-close" id="leadClose" aria-label="Close">&times;</button>
+
+  <div class="lead-content">
+    <h3 id="leadTitle" class="lead-title">Start a quick conversation</h3>
+
+    <!-- NEW: EmailJS Integrated Form -->
+    <form id="leadForm" class="lead-form" novalidate>
+
+      <!-- Name -->
+      <div class="field">
+        <label for="leadName" class="field-label">Name</label>
+        <input id="leadName" name="name" type="text" placeholder="Your name" required>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label for="leadEmail" class="field-label">Email</label>
+        <input id="leadEmail" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="field">
+        <label for="leadWhats" class="field-label">WhatsApp Number (Required)</label>
+        <input id="leadWhats" name="whatsapp" type="tel" placeholder="+8801XXXXXXXXX"
+               inputmode="tel" pattern="^\+?[0-9\s\-()]{8,20}$" required>
+        <small class="hint">Add country code (e.g., +880…)</small>
+      </div>
+
+      <!-- Service Dropdown -->
+      <div class="field">
+        <label for="leadService" class="field-label">Select your Service</label>
+        <select id="leadService" name="service" required>
+          <option value="" selected disabled>Select your Service</option>
+          <option>Logo & Brand Identity</option>
+          <option>UI/UX Design</option>
+          <option>Packaging Design</option>
+          <option>Social Media Design</option>
+          <option>Realistic Mockups</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Budget Dropdown -->
+      <div class="field">
+        <label for="leadBudget" class="field-label">Select your Budget (USD)</label>
+        <select id="leadBudget" name="budget" required>
+          <option value="" selected disabled>Select your budget</option>
+          <option value="100">$100</option>
+          <option value="250">$250</option>
+          <option value="500">$500</option>
+          <option value="1000">$1000</option>
+          <option value="2000">$2000</option>
+          <option value="custom">Custom</option>
+        </select>
+
+        <!-- Custom Budget -->
+        <div id="customBudgetWrap" class="custom-budget" hidden>
+          <label for="customBudget" class="sr-only">Custom budget (USD)</label>
+          <div class="currency">
+            <input id="customBudget" name="customBudget" type="number" min="1" step="1" placeholder="Amount">
+            <span class="suffix">USD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preferred Contact Method -->
+      <div class="field">
+        <label for="leadContact" class="field-label">How can we reach you fastest?</label>
+        <select id="leadContact" name="contact" required>
+          <option value="" selected disabled>Select preferred channel</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="email">Email</option>
+        </select>
+        <small class="hint">Choose the channel you check most — we'll use this first.</small>
+      </div>
+
+      <!-- Description -->
+      <div class="field field-full">
+        <label for="leadDesc" class="field-label">Project Description</label>
+        <textarea id="leadDesc" name="description" rows="4" placeholder="Write a short overview…"></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="actions">
+        <button type="submit" class="lead-submit">
+          Submit <span class="icon icon-arrow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</aside>
+<!-- ============== LEAD POPUP BAR (END) ============== -->
+
+<!-- ============== GLOBAL TOAST (SUCCESS BAR) (START) ============== -->
+<div id="leadToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  Thanks for your interest. We’ll get back to you shortly.
+</div>
+<!-- ============== GLOBAL TOAST (SUCCESS BAR) (END) ============== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ============== RIGHT INFO DRAWER (START) ============== -->
+  <aside id="sitePanel" class="site-panel" aria-hidden="true">
+    <div class="panel-head">
+      <a href="../index.html" class="panel-brand-text" aria-label="Hue Sixteen — Home">
+        <img src="../Images/Logo.png" class="panel-logo" alt="Hue Sixteen logo">
+        HUE SIXTEEN
+      </a>
+      <button class="panel-close" id="panelClose" type="button" aria-label="Close panel">&times;</button>
+    </div>
+
+    <div class="panel-body">
+      <h3 class="panel-title">We are a Modern Digital Brand Agency.</h3>
+
+      <section class="panel-block" aria-label="Office address">
+        <h4 class="panel-sub">Dhaka</h4>
+        <p class="panel-text">
+          617/312 Delpara, Sharifbag, Fatullah,<br>
+          Kutubpur-1421, Narayanganj.
+        </p>
+      </section>
+
+      <section class="panel-block" aria-label="Contact methods">
+        <div class="panel-row">
+          <img src="../Images/Icons/Email.svg" class="panel-ico" alt="Email icon">
+          <div>
+            <div class="muted">Send Us Mail</div>
+            <a href="mailto:info@example.com" class="panel-link">gfxhue16@gmail.com</a>
+          </div>
+        </div>
+        <div class="panel-row">
+          <img src="../Images/Icons/WhatsApp.svg" class="panel-ico" alt="WhatsApp icon">
+          <div>
+            <div class="muted">Send Message on WhatsApp</div>
+            <a href="https://wa.me/8801600140898" rel="noopener" class="panel-link">+8801600140898</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-block" aria-label="Subscribe form">
+  <h4 class="panel-sub">Subscribe To Get Free Update.</h4>
+
+  <!-- Use a form ID so JS can target it safely -->
+  <form class="panel-form" id="subscribeForm" novalidate>
+    <label class="sr-only" for="emailSub">Email address</label>
+
+    <!-- Keep ONLY ONE input -->
+    <div class="panel-inputrow">
+      <input id="emailSub" name="email" type="email" placeholder="Enter Email" required>
+      <button type="submit" aria-label="Subscribe" class="panel-submit">
+        <span class="icon icon-arrow" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- Error shown only after invalid submit -->
+    <p id="emailError" class="input-error" aria-live="polite" hidden>
+      Enter a valid email (e.g., name@email.com)
+    </p>
+  </form>
+
+  <p class="tiny muted">By subscribing, you agree to our <a href="#" class="panel-link">privacy policy</a>.</p>
+</section>
+<div id="subscribeToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  You’ve successfully subscribed. You’ll now receive updates.
+</div>
+
+
+
+      <section class="panel-block social-row" aria-label="Social links">
+        <a href="https://www.facebook.com/huesixteen" aria-label="Facebook"><img src="../Images/Icons/facebook.svg" alt="Facebook"></a>
+        <a href="https://www.linkedin.com/in/gximdalfaysal" aria-label="LinkedIn"><img src="../Images/Icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/gximdalfaysal" aria-label="Instagram"><img src="../Images/Icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@huesixteen" aria-label="YouTube"><img src="../Images/Icons/youtube.svg" alt="YouTube"></a>
+      </section>
+    </div>
+  </aside>
+  <div id="panelOverlay" class="panel-overlay" hidden></div>
+  <!-- ============== RIGHT INFO DRAWER (END) ============== -->
+
+  <!-- ============== LEFT MENU DRAWER (MOBILE) (START) ============== -->
+  <aside id="mobileMenu" class="menu-drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-brand">
+        <img src="../Images/HueLogo.svg" class="drawer-brandlogo" alt="Hue Sixteen logo">
+        <h1 class="drawer-brandname">HUE SIXTEEN</h1>
+      </span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="drawer-body" aria-label="Mobile navigation">
+      <a href="../index.html" class="drawer-link">Home</a>
+      <a href="../Service/Service.html" class="drawer-link">Services</a>
+      <a href="../Portfolio/Portfolio.html" class="drawer-link">Portfolio</a>
+      <a href="../Pricing/Pricing.html" class="drawer-link">Pricing</a>
+      <a href="../About/About.html" class="drawer-link">About</a>
+      <a href="../Privacy-Policy/Privacy&Policy.html" class="drawer-link">Privacy & Policy</a>
+      <a href="../Privacy-Policy/Privacy&Policy.html" class="drawer-link">Terms & Conditions</a>
+
+      <a href="../Pricing/Pricing.html#start" class="hiremebtn drawer-cta" id="drawerCta">
+        <span class="btn-label">Let’s Talk</span>
+        <span class="icon icon-arrow" aria-hidden="true"></span>
+      </a>
+    </nav>
+  </aside>
+  <div id="menuOverlay" class="menu-overlay" hidden></div>
+  <!-- ============== LEFT MENU DRAWER (MOBILE) (END) ============== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="privacy-container">
+  <h1 class="prvc-tittle">Terms & Conditions – Hue Sixteen</h1>
+  <p class="prvc-sub">By using our website and services, you agree to comply with these Terms & Conditions. If you do not agree, please do not use our services.</p>
+
+  <h2>1. Services Provided</h2>
+  <ul>
+    <li>Hue Sixteen provides graphics design services including, but not limited to, logo design, branding, social media graphics, and illustration.</li>
+    <li>We reserve the right to modify or discontinue services at any time.</li>
+  </ul>
+
+  <h2>2. Client Responsibilities</h2>
+  <ul>
+    <li>Provide accurate and complete information regarding your project.</li>
+    <li>Respond promptly to communications regarding your project.</li>
+    <li>Ensure that any content you provide does not infringe on third-party rights.</li>
+  </ul>
+
+  <h2>3. Payment Terms</h2>
+  <ul>
+    <li>Payments must be made as agreed before project delivery.</li>
+    <li>Late payments may result in delayed delivery or suspension of services.</li>
+  </ul>
+
+  <h2>4. Intellectual Property</h2>
+  <ul>
+    <li>All work remains the property of Hue Sixteen until full payment is received.</li>
+    <li>Upon full payment, you are granted the agreed-upon rights to use the design.</li>
+    <li>Hue Sixteen retains the right to showcase the work in portfolios and marketing materials.</li>
+  </ul>
+
+  <h2>5. Revisions and Changes</h2>
+  <ul>
+    <li>We offer a specified number of revisions per project as agreed.</li>
+    <li>Additional revisions may incur extra charges.</li>
+  </ul>
+
+  <h2>6. Limitation of Liability</h2>
+  <p>Hue Sixteen is not responsible for any indirect, incidental, or consequential damages arising from the use of our services or designs.</p>
+
+  <h2>7. Termination</h2>
+  <p>We reserve the right to terminate services if clients breach these Terms & Conditions.</p>
+
+  <h2>8. Governing Law</h2>
+  <p>These Terms & Conditions are governed by the laws of Bangladesh.</p>
+
+  <h2>9. Contact Us</h2>
+  <p>If you have any questions regarding these Terms & Conditions, please contact us:</p>
+  <ul>
+    <li>Email: <a href="gfxhue16@gmail.com">gfxhue16@gmail.com</a></li>
+    <li>Phone: <a href="tel:+8801600140898">+8801600140898</a></li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+<!-- ============== FOOTER (START) ============== -->
+
+<footer class="footer">
+<div class="footer-container">
+<div class="ftr-top">
+  <!-- Brand Info Start -->
+  <div class="ftrtop-brndinfo">
+    <div class="ftrtop-brndlogo">
+      <img src="../Images/Logo.png">
+      <h1>Hue Sixteen</h1>
+    </div>
+    <p>We turn concepts into clean, effective visuals that strengthen communication and build lasting brand clarity for growing brands. </p>
+    <div class="ftrtop-binf-sclicn">
+      <a href="https://www.facebook.com/huesixteen"><span class=" ftrtop-binf-fb ftrtop-binf-sclicn-hvr" ></span></a>
+    <a href="https://www.instagram.com/gximdalfaysal"><span class=" ftrtop-binf-ig ftrtop-binf-sclicn-hvr" ></span></a>
+    <a href="https://www.linkedin.com/in/gximdalfaysal"><span class=" ftrtop-binf-in ftrtop-binf-sclicn-hvr" ></span></a>
+    <a href="https://www.youtube.com/@huesixteen"><span class=" ftrtop-binf-yt ftrtop-binf-sclicn-hvr" ></span></a>
+    </div>
+  </div>
+  <!-- Brand Info End -->
+
+   <div class="qcklnk-svr">
+    <!-- Quick Link Start -->
+  <div class="ftrtop-qcklnk">
+    <h3>Quick Links</h3>
+    <div class="ftrtop-qcklnk-texts">
+      <a href="../Index.html"><span>Home</span></a>
+      <a href="../Service/service.html"><span>Service</span></a>
+      <a href="../Portfolio/portfolio.html"><span>Portfolio</span></a>
+      <a href="../Pricing/pricing.html"><span>Pricing</span></a>
+      <a href="../About/about.html"><span>About</span></a>
+      <a href="#"><span>Privacy policy </span></a>
+      <a href="#"><span>Terms & Conditions</span></a>
+      <a href="../Privacy-Policy/Privacy&Policy.html"><span>Privacy & Policy</span></a>
+      <a href="../Terms-Conditions/Terms&Conditions.html"><span>Terms & Conditions</span></a>
+    </div>
+  </div>
+  <!-- Quick Link End -->
+
+   <!-- Service Start -->
+  <div class="ftrtop-srv">
+    <h3>Service</h3>
+    <div class="ftrtop-srv-texts">
+      <a href="../Service/service.html#service-page-area"><span>Logo & Brand</span></a>
+      <a href="../Service/service.html#service-page-area"><span>PSD Mockups</span></a>
+      <a href="../Service/service.html#service-page-area"><span>Stationery</span></a>
+      <a href="../Service/service.html#service-page-area"><span>Illustration</span></a>
+      <a href="../Service/service.html#service-page-area"><span>Social Ads</span></a>
+    </div>
+  </div>
+   </div>
+  <!-- Service End -->
+
+   <!-- Subscribe Start -->
+<div class="ftrtop-subscribe">
+  <h1> Get the Latest Inspiration </h1>
+
+  <form id="footerSubscribeForm" class="fttpsbcrb-form" action="#" method="post" novalidate>
+    <input id="footerEmail" type="email" placeholder="Enter your email *" required>
+    <p id="footerError" class="input-error" aria-live="polite" hidden>
+      Enter a valid email (e.g., name@email.com)
+    </p>
+    <button type="submit">Subscribe Now</button>
+  </form>
+</div>
+
+<!-- Footer subscribe toast (separate from panel) -->
+<div id="footerToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  <span>You’ve successfully subscribed. You’ll now receive updates.</span>
+</div>
+
+<!-- Subscribe End -->
+
+
+
+</div>
+<!-- Footer Top End -->
+
+<!-- Footer Bottom Start -->
+<div class="ftr-bottom">
+  <p>© 2025 HUE SIXTEEN. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+
+
+
+
+
+
+
+
+  <!-- JS -->
+   <!-- EmailJS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("cy-xB77TUrofN4z1z");
+</script>
+
+
+
+
+<script src="../Index.js" defer></script>
+
+
+</body>
+</html>

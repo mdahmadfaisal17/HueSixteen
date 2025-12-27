@@ -1,0 +1,691 @@
+/* ============== RESPONSIVE STYLES (START) ============== */
+
+@media (max-width: 1024px) {
+  .menu {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* ================== ≤ 992px: mobile header + hero sizing (START) ================== */
+/* Goal: collapse excess whitespace between title, sub, CTA/proof, and video */
+@media (max-width: 992px){
+  /* Header: hide desktop menu & CTA; show hamburger */
+  .header .menu,
+  .header #ctaTalk { display: none !important; }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header .container_nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 16px;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .header .brandtext { font-size: 22px; }
+  .headerlogo { width: 44px; height: auto; margin-right: 8px; }
+  .icon-app, .icon-menu { width: 25px; height: 25px; }
+
+  /* ----- Spacing controls ----- */
+  .hero-inner { margin: 25px 0 0 0; }                 /* was 28px */
+  .hero-title { font-size: clamp(40px, 9vw, 70px); margin: 6px 0 10px; }
+  .hero-sub   { margin: 8px 0 16px; line-height: 1.7; }
+  .hero-row   { gap: 12px 16px; margin-top: 6px; }
+
+  .video-wrapper { transform: scale(0.95); transform-origin: center; margin: 24px 0 14px; border-radius: 10px;}  /* was 40px */
+}
+/* ================== ≤ 992px: mobile header + hero sizing (END) ================== */
+
+
+/* ================== ≤ 600px (START) ================== */
+/* Goal: slightly tighter again and remove transform scaling */
+@media (max-width: 600px){
+  .menu { top: 8px; }
+
+  /* Remove the scale to avoid extra perceived whitespace */
+  .video-wrapper { transform: none; margin: 20px 0; }
+
+  /* Small nudge tighter */
+  .hero-inner { margin-top: 18px; }
+  .hero-title { margin: 4px 0 8px; }
+  .hero-sub   { margin: 6px 0 14px; }
+  .hero-row   { gap: 10px 14px; margin-top: 4px; }
+}
+/* ================== ≤ 600px (END) ================== */
+
+
+/* ================== ≤ 480px: tighter hero (START) ================== */
+@media (max-width: 480px){
+  .hero-title { font-size: 35px; margin: 2px 0 8px; }
+  .hero-row { display: flex; flex-direction: column; gap: 25px; }
+  .proof { display: flex; justify-content: center; }
+}
+/* ================== ≤ 480px: tighter hero (END) ================== */
+
+
+/* ================== ≤ 390px: smallest (START) ================== */
+@media (max-width: 390px){
+  .hero-title { font-size: 30px;}
+  .hero-sub   { margin: 6px 0 12px; }
+}
+/* ================== ≤ 390px: smallest (END) ================== */
+
+
+/* ============== RESPONSIVE STYLES (END) ============== */
+
+
+
+/* ============== SUCCESS TOAST – RESPONSIVE (START) ============== */
+@media (max-width: 480px){
+  .lead-toast{ font-size: 13px; padding: 10px 14px; }
+}
+/* ============== SUCCESS TOAST – RESPONSIVE (END) ============== */
+/* ============== RESPONSIVE (you can keep in Responsive.css too) ============== */
+@media (max-width: 700px){
+  .lead-form{ grid-template-columns: 1fr; }
+  .actions{ justify-content: stretch; }
+  .lead-submit{ width: 100%; justify-content: center; }
+}
+@media (max-width: 480px){
+  .lead-toast{ font-size: 13px; padding: 10px 14px; }
+}
+
+
+
+
+
+
+
+/* ============ BRAND MARQUEE — RESPONSIVE (START) ============ */
+
+/* ===== Laptop / Small Desktop ===== */
+@media (max-width: 1024px) {
+  .brand-marquee{
+    --bm-img-h: 30px;
+    --bm-gap: 52px;
+    --bm-speed: 34s;
+  }
+}
+
+/* ===== iPad / Tablet Mid Range ===== */
+@media (max-width: 850px) {
+  .brand-marquee{
+    --bm-img-h: 28px;
+    --bm-gap: 46px;
+    --bm-speed: 32s;
+  }
+  .brand-marquee .bm-title { font-size: 15px; }
+  .brand-marquee .bm-name  { font-size: 15px; }
+
+  /* GAP: Marquee ↔ KPI (tablet) */
+  .brand-marquee { padding-top: 10px; padding-bottom: 10px; }
+  .kpi { padding-top: 28px; }
+}
+
+/* ===== Mobile (≤600) ===== */
+@media (max-width: 600px) {
+  .brand-marquee{
+    --bm-img-h: 26px;
+    --bm-gap: 40px;
+    --bm-speed: 30s;
+  }
+  .brand-marquee .bm-title { font-size: 13px; }
+  .brand-marquee .bm-name  { font-size: 13px; }
+
+  /* GAP: Marquee ↔ KPI (big phones) */
+  .brand-marquee { padding-bottom: 8px; }
+  .kpi { padding-top: 24px; }
+}
+
+/* ===== Extra Small Phones (≤360) ===== */
+@media (max-width: 360px) {
+  .brand-marquee{
+    --bm-img-h: 22px;
+    --bm-gap: 32px;
+    --bm-speed: 26s;
+  }
+  .brand-marquee .bm-title { font-size: 12px; }
+  .brand-marquee .bm-name  { font-size: 12px; }
+
+  /* GAP: Marquee ↔ KPI (small phones) */
+  .brand-marquee { padding-bottom: 6px; }
+  .kpi { padding-top: 20px; }
+}
+
+/* ===== Desktop/Wide (default) ===== */
+@media (min-width: 851px){
+  .brand-marquee { padding-bottom: 12px; } /* tighter than default */
+  .kpi { padding-top: 34px; }
+}
+
+/* ============ BRAND MARQUEE — RESPONSIVE (END) ============ */
+
+
+
+
+
+/* ================= KPI — RESPONSIVE (START) ================= */
+
+/* <= 1200px — spacing tighten */
+@media (max-width: 1200px){
+  .kpi__title{ font-size: 42px; margin-bottom: 24px; }
+  .pill__label{ font-size: 36px; }
+  .kpi__number{ font-size: 120px; }
+  .kpi__prefix{ font-size: 64px; }
+  .kpi__divider{ height: 120px; }
+
+  /* title ↔ pills ↔ stats gaps */
+  .kpi__pills{ margin: 22px 0 16px; }
+  .kpi__grid{  margin-top: 6px; }
+}
+
+/* <= 1024px */
+@media (max-width: 1024px){
+  .kpi__title{ font-size: 38px; margin-bottom: 20px; }
+  .kpi__divider{ height: 110px; }
+
+  .kpi__pills{ margin: 18px 0 12px; }
+  .kpi__grid{  margin-top: 4px; }
+}
+
+/* <= 850px (iPad / tablet mid) */
+@media (max-width: 850px){
+  /* উপরের global ব্লক KPI top padding 28px সেট করে দিয়েছে */
+  .kpi__title{ font-size: 34px; margin-bottom: 16px; }
+  .pill__label{ font-size: 32px; }
+  .kpi__number{ font-size: 110px; }
+  .kpi__prefix{ font-size: 60px; }
+
+  .kpi__pills{ margin: 25px 0 10px; }
+  .kpi__grid{  margin-top: 25px; }
+}
+
+/* <= 720px: stack grid + tight rhythm */
+@media (max-width: 720px){
+  .kpi__grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 520px;
+    margin-top: 8px;
+  }
+  .kpi__divider{ display: none; }
+
+  .kpi__title{ margin-bottom: 25px; }
+  .kpi__pills{ margin: 25px 0 8px; }
+}
+
+/* <= 480px */
+@media (max-width: 480px){
+  /* উপরের global ব্লক KPI top padding 24px সেট করেছে */
+  .kpi__title{ font-size: 22px; margin-bottom: 12px; }
+  .pill__label{ font-size: 20px; }
+  .kpi__number{ font-size: 92px; }
+  .kpi__prefix{ font-size: 52px; }
+  .kpi__caption{ font-size: 13px; }
+  .pill__icon { width: 20px; height: 20px; }
+
+  .kpi__pills{ margin: 25px 0 8px; }
+  .kpi__grid{  margin-top: 25px; }
+}
+
+/* <= 360px */
+@media (max-width: 360px){
+  .kpi__title{ font-size: 20px; margin-bottom: 10px; }
+  .pill__label{ font-size: 18px; }
+  .kpi__number{ font-size: 84px; }
+  .kpi__prefix{ font-size: 48px; }
+
+  .kpi__pills{ margin: 25px 0 6px; }
+  .kpi__grid{  margin-top: 25px; }
+}
+
+/* ================= KPI — RESPONSIVE (END) ================= */
+
+
+
+
+
+
+
+/* ===== [RESPONSIVE — START] ===== */
+
+/* ≤ 1024px */
+@media (max-width: 1040px){
+  .services-sub{ font-size:38px; }
+  .srvbttm-title{ font-size:34px; }
+  .wrkp-card {
+    margin-bottom: 30px;
+  }
+  .tools-logos{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ≤ 768px (tablets) */
+@media (max-width: 810px){
+  .services{ padding-top:48px; }
+  .services-head{ margin-bottom:50px; }
+  .services-sub{ font-size:32px; }
+  .srv-sub-line2{ margin-top:28px; }
+
+  .srvbttm{
+    flex-direction:column;
+    align-items: center;
+    gap: 5px;
+    padding: 0 0 20px;
+    text-align: center;
+  }
+  #srvbttm-title{ text-align: center;}
+  .srvbttm-btns{ gap:12px; flex-wrap:wrap; }
+
+  .wrkp-scsncrt{ 
+    display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+
+  /* Important part 👇 */
+  max-width: 650px;        /* control total grid width */
+  margin: 0 auto;           /* center the whole grid block */
+  justify-items: center;    /* center each card within its cell */
+  }
+  .tools-logos{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ≤ 560px */
+@media (max-width: 560px){
+  .services-sub{ font-size:26px; }
+  .srv-sub-line2{ margin-top:22px; }
+  .srvscsncrt{ gap:18px; }
+  .crv-card-title{ font-size:16px; }
+
+  #srvbttm-title{ font-size:35px; }
+  .srvbttm-btn{ font-size:13px; padding:10px 16px; }
+
+  .wrkp-scsncrt{ grid-template-columns: 1fr; }
+  .wrkpcrd-shape1,
+  .wrkpcrd-shape2,
+  .wrkpcrd-shape3,
+  .wrkpcrd-shape4{ min-height:200px; }
+
+  .tools-title{ font-size:24px; }
+  .tools-logos{ grid-template-columns: 1fr; }
+}
+
+/* ≤ 480px */
+@media (max-width: 480px){
+  #srvbttm-title {
+    font-size: 30px;
+  }
+  .srvbttm-hrme, .srvbttm-slsn {
+  font-size: 11px;
+  padding: 8px 12px;
+}
+}
+
+
+/* ≤ 365px */
+@media (max-width: 365px){
+  .services-sub {
+    font-size: 20px;
+  }
+  #srvbttm-title {
+    font-size: 25px;
+  }
+  .srvbttm-hrme, .srvbttm-slsn {
+  font-size: 10px;
+  padding: 8px 12px;
+}
+}
+
+
+
+/* ===== [RESPONSIVE — END] ===== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ≤ 560px */
+@media (max-width: 560px){
+  .tlbx-ttllne {
+    display: none;
+  }
+  .tools-title {
+    font-size: 25px;
+  }
+  .tools-title span {
+    display: block;
+    font-size: 25px;
+  }
+
+  .tools-logos {
+    border-top: 2px solid rgba(0,0,0,.1);
+    padding: 20px 0;
+  }
+}
+
+
+
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .portfscsncrt{grid-template-columns:1fr;}
+  .portf-card:nth-child(even){margin-top:0;}
+  .portf-sub{font-size:36px;}
+  .portf-head-btn{justify-content:center; margin:30px 0 0;}
+}
+
+@media (max-width: 420px){
+  .portf-sub{font-size:30px; line-height:0.9;}
+}
+
+@media (max-width: 350px){
+  .portf-sub{font-size:25px; line-height:0.9;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ≤ 810px */
+@media (max-width: 810px){
+  .abouttms-title {
+    font-size: clamp(20px, 7vw, 45px);
+  }
+}
+
+
+
+/* ≤ 610px */
+@media (max-width: 1200px){
+  .teams-scsncrt {
+    margin: 0 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ≤ 1100px */
+@media (max-width: 1100px){
+.clntrvw-bgshape {
+  width: 420px;
+  height: auto;
+}
+.clntrvw-cardtop-profileimg {
+  width: 50px;
+  height: 50px;
+}
+.clntrvw-comments-short{font-size:14px;}
+.clntrvw-comments-long{ font-size:16px;}
+
+.clntrvw-cardtop{padding: 0 70px 0 0; }
+}
+
+
+
+/* ≤ 880px */
+@media (max-width: 880px){
+  .clntrvw-bgshape {
+  width:520px; height:335px;
+}
+.clntrvw-cardtop-profileimg {
+  width: 60px;
+  height: 60px;
+}
+.clntrvw-comments-short{font-size:16px;}
+.clntrvw-comments-long{ font-size:20px;}
+
+.clntrvw-cardtop{padding:20px 90px 0 0; }
+}
+
+
+
+
+
+/* ≤ 530px */
+@media (max-width: 530px){
+.clntrvw-bgshape {
+  width: 420px;
+  height: auto;
+}
+.clntrvw-cardtop-profileimg {
+  width: 50px;
+  height: 50px;
+}
+.clntrvw-comments-short{font-size:14px;}
+.clntrvw-comments-long{ font-size:16px;}
+
+.clntrvw-cardtop{padding: 0 70px 0 0; }
+}
+
+
+
+/* ≤ 425px */
+@media (max-width: 425px){
+.clntrvw-bgshape {
+  width: 350px;
+  height: auto;
+}
+.clntrvw-cardtop-profileimg {
+  width: 50px;
+  height: 50px;
+}
+.clntrvw-cardtop-infoname{ font-size:14px; }
+.clntrvw-cardtop-inforole{ font-size:11px;}
+.clntrvw-comments {
+  margin-top: -10px;
+}
+.clntrvw-comments-short{font-size:13px;}
+.clntrvw-comments-long{ font-size:14px;}
+
+.clntrvw-cardtop{padding: 0 55px 0 0; }
+}
+
+
+
+/* ≤ 810px */
+@media (max-width: 810px) {
+  .faq-title {
+    font-size: clamp(22px, 7vw, 45px);
+  }
+
+  .faq-toggle {
+    padding: 12px 14px 12px 18px;
+    gap: 10px;
+  }
+
+  .faq-qsn {
+    font-size: clamp(16px, 4.6vw, 20px);
+    line-height: 1.4; /* comfortable on small screens */
+  }
+
+  .faq-ans {
+    font-size: clamp(13px, 3.8vw, 15px);
+    padding: 0 18px; /* closed state */
+  }
+  .faq-card[aria-expanded="true"] .faq-ans {
+    padding: 8px 18px 14px 18px; /* open state */
+  }
+
+  .faq-icon-pluscross {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ≤ 1024px */
+@media (max-width: 1024px) {
+}
+
+
+
+
+/* ≤ 950px */
+@media (max-width: 950px) {
+  .ftrtop-brndlogo img{
+  width: 40px;
+  height: 40px;
+}
+.ftrtop-brndlogo h1 {
+  font-size: 28px;
+  line-height: 0;
+}
+
+
+
+}
+
+
+
+/* ≤ 860px */
+@media (max-width: 860px) {
+
+  /* ============ Brand Info Start ============ */
+  .ftrtop-brndlogo img {
+    width: clamp(30px, 5vw, 40px);
+    height: clamp(30px, 5vw, 40px);
+  }
+
+  .ftrtop-brndlogo h1 {
+    font-size: clamp(18px, 4vw, 25px);
+  }
+
+  .ftrtop-binf-fb,
+  .ftrtop-binf-ig,
+  .ftrtop-binf-in,
+  .ftrtop-binf-yt {
+    width: clamp(16px, 4vw, 20px);
+    height: clamp(16px, 4vw, 20px);
+  }
+  /* ============ Brand Info End ============ */
+
+
+  /* ============ Quick Links Start ============ */
+  .ftrtop-qcklnk h3 {
+    font-size: clamp(14px, 3.5vw, 16px);
+  }
+
+  .ftrtop-qcklnk-texts {
+    font-size: clamp(12px, 3vw, 14px);
+  }
+  /* ============ Quick Links End ============ */
+
+
+  /* ============ Service Start ============ */
+  .ftrtop-srv h3 {
+    font-size: clamp(14px, 3.5vw, 16px);
+  }
+
+  .ftrtop-srv-texts {
+    font-size: clamp(12px, 3vw, 14px);
+  }
+  /* ============ Service End ============ */
+
+
+  /* ============ Subscribe Start ============ */
+  .ftrtop-subscribe {
+    gap: clamp(10px, 3vw, 16px);
+  }
+
+  .ftrtop-subscribe h1 {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+
+  .fttpsbcrb-form input {
+    font-size: clamp(10px, 2.5vw, 12px);
+  }
+
+  .fttpsbcrb-form button {
+    font-size: clamp(10px, 3vw, 12px);
+    height: clamp(40px, 6vw, 46px);
+    border-radius: 8px;
+    padding: 0 clamp(12px, 4vw, 18px);
+  }
+  /* ============ Subscribe End ============ */
+}
+
+
+
+
+/* ≤ 750px */
+@media (max-width: 750px) {
+
+  .ftr-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+   .ftrtop-brndinfo {
+    width: 100%;        /* fixed 720px বাদ */
+    max-width: 560px;   /* চাইলে সীমা দিন */
+    margin: 0 auto;
+    padding-inline: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ftrtop-brndinfo p {
+    width: 100%;
+    text-align: center;
+    white-space: normal;          /* কোনো nowrap থাকলে খুলি */
+    overflow-wrap: anywhere;      /* লম্বা শব্দ ভাঙবে */
+    /* বা: word-break: break-word; */
+  }
+
+  .ftrtop-subscribe {
+    width: 700px;
+    height: auto;
+  }
+}
+
+
+
+
+

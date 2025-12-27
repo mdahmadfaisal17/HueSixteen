@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ================= HEAD (START) ================= -->
+ <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="Index.css">
+  <link rel="stylesheet" href="Responsive.css">
+
+  <link rel="icon" type="image/png" href="Images/Favicon.png">
+  <title>HUE SIXTEEN — Agency</title>
+  <!-- ================= HEAD (END) ================= -->
+</head>
+<body>
+<!-- ============ PAGE WRAPPER (START) ============ -->
+
+  <!-- =================== HERO (WRAPPER) (START) =================== -->
+  <section class="hero" aria-label="Intro">
+    <!-- ============== HEADER (START) ============== -->
+    <header class="header">
+      <div class="container_nav">
+        <!-- Brand -->
+        <a href="index.html" class="brandtext" aria-label="Hue Sixteen — Home">
+          <img src="Images/Logo.png" class="headerlogo" alt="Hue Sixteen logo">
+          HUE SIXTEEN
+        </a>
+
+        <!-- Primary menu (desktop) -->
+        <nav id="primary-nav" class="menu" aria-label="Primary navigation">
+          <a href="index.html" class="nav-link" data-text="Home" aria-current="page"><span class="t1">Home</span></a>
+          <a href="Service/service.html" class="nav-link" data-text="Services"><span class="t1">Services</span></a>
+          <a href="Portfolio/portfolio.html" class="nav-link" data-text="Portfolio"><span class="t1">Portfolio</span></a>
+          <a href="Pricing/pricing.html" class="nav-link" data-text="Pricing"><span class="t1">Pricing</span></a>
+          <a href="About/about.html" class="nav-link" data-text="About"><span class="t1">About</span></a>
+        </nav>
+
+        <!-- Right controls -->
+        <div class="header-actions">
+          <button class="panel-toggle" id="infoToggle" type="button"
+                  aria-controls="sitePanel" aria-expanded="false" aria-label="Open info panel">
+            <span class="icon-app" aria-hidden="true"></span>
+          </button>
+
+          <!-- HAMBURGER: hidden on desktop (Index.css), shown on mobile (Responsive.css) -->
+          <button class="menu-toggle" id="menuToggle" type="button"
+                  aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+            <span class="icon-menu" aria-hidden="true"></span>
+          </button>
+
+          <a class="hiremebtn hide-mobile open-lead" id="ctaTalk" aria-label="Start a project">
+            <span class="btn-label">Let’s Talk</span>
+            <span class="icon icon-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- ============== HEADER (END) ============== -->
+
+    <!-- ============== HERO INNER (START) ============== -->
+    <section class="hero-inner" aria-label="Brand intro">
+      <h1 class="hero-title">
+        <span class="line slide-up">Where ideas turn</span>
+        <span class="line slide-up">into <span class="swash slide-up">visual identity</span></span>
+      </h1>
+
+      <p class="hero-sub slide-up">
+        We turn concepts into clean, effective visuals that strengthen communication and build lasting brand clarity for growing brands.
+      </p>
+
+      <div class="hero-row">
+        <a href="#contact" class="hiremebtn open-lead" id="heroTalk">
+          <span class="btn-label">Start a Project</span>
+          <span class="icon icon-arrow" aria-hidden="true"></span>
+        </a>
+
+        <!-- Social proof -->
+        <div class="proof" aria-label="Client avatars and star ratings">
+          <div class="avatars" aria-hidden="true">
+            <img class="avatar" src="Images/Customer-Review/01.jpg" alt="Client Reviews">
+            <img class="avatar" src="Images/Customer-Review/02.jpg" alt="Client Reviews">
+            <img class="avatar" src="Images/Customer-Review/03.jpg" alt="Client Reviews">
+            <img class="avatar" src="Images/Customer-Review/04.jpg" alt="Client Reviews">
+          </div>
+
+          <div class="stars-texts">
+            <div class="stars" aria-label="5 out of 5 stars rating">
+              <svg viewBox="0 0 24 24" role="img" aria-label="Star"><path d="M12 .9l3.09 6.26 6.91 1-5 4.86 1.18 6.89L12 17.77 5.82 19.9 7 13.02 2 8.16l6.91-1L12 .9z"/></svg>
+              <svg viewBox="0 0 24 24" role="img" aria-label="Star"><path d="M12 .9l3.09 6.26 6.91 1-5 4.86 1.18 6.89L12 17.77 5.82 19.9 7 13.02 2 8.16l6.91-1L12 .9z"/></svg>
+              <svg viewBox="0 0 24 24" role="img" aria-label="Star"><path d="M12 .9l3.09 6.26 6.91 1-5 4.86 1.18 6.89L12 17.77 5.82 19.9 7 13.02 2 8.16l6.91-1L12 .9z"/></svg>
+              <svg viewBox="0 0 24 24" role="img" aria-label="Star"><path d="M12 .9l3.09 6.26 6.91 1-5 4.86 1.18 6.89L12 17.77 5.82 19.9 7 13.02 2 8.16l6.91-1L12 .9z"/></svg>
+              <svg viewBox="0 0 24 24" role="img" aria-label="Star"><path d="M12 .9l3.09 6.26 6.91 1-5 4.86 1.18 6.89L12 17.77 5.82 19.9 7 13.02 2 8.16l6.91-1L12 .9z"/></svg>
+            </div>
+            <span class="trust">Trusted by modern startups</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============== HERO INNER (END) ============== -->
+  </section>
+  <!-- =================== HERO (WRAPPER) (END) ============ -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============== LEAD POPUP BAR (START) ============== -->
+<div id="leadOverlay" class="lead-overlay" hidden></div>
+
+<aside id="leadModal" class="lead-modal" aria-hidden="true" role="dialog" aria-labelledby="leadTitle">
+  <button type="button" class="lead-close" id="leadClose" aria-label="Close">&times;</button>
+
+  <div class="lead-content">
+    <h3 id="leadTitle" class="lead-title">Start a quick conversation</h3>
+
+    <!-- NEW: EmailJS Integrated Form -->
+    <form id="leadForm" class="lead-form" novalidate>
+
+      <!-- Name -->
+      <div class="field">
+        <label for="leadName" class="field-label">Name</label>
+        <input id="leadName" name="name" type="text" placeholder="Your name" required>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label for="leadEmail" class="field-label">Email</label>
+        <input id="leadEmail" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="field">
+        <label for="leadWhats" class="field-label">WhatsApp Number (Required)</label>
+        <input id="leadWhats" name="whatsapp" type="tel" placeholder="+8801XXXXXXXXX"
+               inputmode="tel" pattern="^\+?[0-9\s\-()]{8,20}$" required>
+        <small class="hint">Add country code (e.g., +880…)</small>
+      </div>
+
+      <!-- Service Dropdown -->
+      <div class="field">
+        <label for="leadService" class="field-label">Select your Service</label>
+        <select id="leadService" name="service" required>
+          <option value="" selected disabled>Select your Service</option>
+          <option>Logo & Brand Identity</option>
+          <option>UI/UX Design</option>
+          <option>Packaging Design</option>
+          <option>Social Media Design</option>
+          <option>Realistic Mockups</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Budget Dropdown -->
+      <div class="field">
+        <label for="leadBudget" class="field-label">Select your Budget (USD)</label>
+        <select id="leadBudget" name="budget" required>
+          <option value="" selected disabled>Select your budget</option>
+          <option value="100">$100</option>
+          <option value="250">$250</option>
+          <option value="500">$500</option>
+          <option value="1000">$1000</option>
+          <option value="2000">$2000</option>
+          <option value="custom">Custom</option>
+        </select>
+
+        <!-- Custom Budget -->
+        <div id="customBudgetWrap" class="custom-budget" hidden>
+          <label for="customBudget" class="sr-only">Custom budget (USD)</label>
+          <div class="currency">
+            <input id="customBudget" name="customBudget" type="number" min="1" step="1" placeholder="Amount">
+            <span class="suffix">USD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preferred Contact Method -->
+      <div class="field">
+        <label for="leadContact" class="field-label">How can we reach you fastest?</label>
+        <select id="leadContact" name="contact" required>
+          <option value="" selected disabled>Select preferred channel</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="email">Email</option>
+        </select>
+        <small class="hint">Choose the channel you check most — we'll use this first.</small>
+      </div>
+
+      <!-- Description -->
+      <div class="field field-full">
+        <label for="leadDesc" class="field-label">Project Description</label>
+        <textarea id="leadDesc" name="description" rows="4" placeholder="Write a short overview…"></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="actions">
+        <button type="submit" class="lead-submit">
+          Submit <span class="icon icon-arrow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</aside>
+<!-- ============== LEAD POPUP BAR (END) ============== -->
+
+<!-- ============== GLOBAL TOAST (SUCCESS BAR) (START) ============== -->
+<div id="leadToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  Thanks for your interest. We’ll get back to you shortly.
+</div>
+<!-- ============== GLOBAL TOAST (SUCCESS BAR) (END) ============== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ============== RIGHT INFO DRAWER (START) ============== -->
+  <aside id="sitePanel" class="site-panel" aria-hidden="true">
+    <div class="panel-head">
+      <a href="index.html" class="panel-brand-text" aria-label="Hue Sixteen — Home">
+        <img src="Images/Logo.png" class="panel-logo" alt="Hue Sixteen logo">
+        HUE SIXTEEN
+      </a>
+      <button class="panel-close" id="panelClose" type="button" aria-label="Close panel">&times;</button>
+    </div>
+
+    <div class="panel-body">
+      <h3 class="panel-title">We are a Modern Digital Brand Agency.</h3>
+
+      <section class="panel-block" aria-label="Office address">
+        <h4 class="panel-sub">Dhaka</h4>
+        <p class="panel-text">
+          617/312 Delpara, Sharifbag, Fatullah,<br>
+          Kutubpur-1421, Narayanganj.
+        </p>
+      </section>
+
+      <section class="panel-block" aria-label="Contact methods">
+        <div class="panel-row">
+          <img src="Images/Icons/Email.svg" class="panel-ico" alt="Email icon">
+          <div>
+            <div class="muted">Send Us Mail</div>
+            <a href="mailto:info@example.com" class="panel-link">gfxhue16@gmail.com</a>
+          </div>
+        </div>
+        <div class="panel-row">
+          <img src="Images/Icons/WhatsApp.svg" class="panel-ico" alt="WhatsApp icon">
+          <div>
+            <div class="muted">Send Message on WhatsApp</div>
+            <a href="https://wa.me/8801600140898" rel="noopener" class="panel-link">+8801600140898</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-block" aria-label="Subscribe form">
+  <h4 class="panel-sub">Subscribe To Get Free Update.</h4>
+
+  <!-- Use a form ID so JS can target it safely -->
+  <form class="panel-form" id="subscribeForm" novalidate>
+    <label class="sr-only" for="emailSub">Email address</label>
+
+    <!-- Keep ONLY ONE input -->
+    <div class="panel-inputrow">
+      <input id="emailSub" name="email" type="email" placeholder="Enter Email" required>
+      <button type="submit" aria-label="Subscribe" class="panel-submit">
+        <span class="icon icon-arrow" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- Error shown only after invalid submit -->
+    <p id="emailError" class="input-error" aria-live="polite" hidden>
+      Enter a valid email (e.g., name@email.com)
+    </p>
+  </form>
+
+  <p class="tiny muted">By subscribing, you agree to our <a href="#" class="panel-link">privacy policy</a>.</p>
+</section>
+<div id="subscribeToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  You’ve successfully subscribed. You’ll now receive updates.
+</div>
+
+
+
+      <section class="panel-block social-row" aria-label="Social links">
+        <a href="https://www.facebook.com/huesixteen" aria-label="Facebook"><img src="Images/Icons/facebook.svg" alt="Facebook"></a>
+        <a href="https://www.linkedin.com/in/gximdalfaysal" aria-label="LinkedIn"><img src="Images/Icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/gximdalfaysal" aria-label="Instagram"><img src="Images/Icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@huesixteen" aria-label="YouTube"><img src="Images/Icons/youtube.svg" alt="YouTube"></a>
+      </section>
+    </div>
+  </aside>
+  <div id="panelOverlay" class="panel-overlay" hidden></div>
+  <!-- ============== RIGHT INFO DRAWER (END) ============== -->
+
+  <!-- ============== LEFT MENU DRAWER (MOBILE) (START) ============== -->
+  <aside id="mobileMenu" class="menu-drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-brand">
+        <img src="Images/HueLogo.svg" class="drawer-brandlogo" alt="Hue Sixteen logo">
+        <h1 class="drawer-brandname">HUE SIXTEEN</h1>
+      </span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="drawer-body" aria-label="Mobile navigation">
+      <a href="index.html" class="drawer-link">Home</a>
+      <a href="Service/Service.html" class="drawer-link">Services</a>
+      <a href="Portfolio/Portfolio.html" class="drawer-link">Portfolio</a>
+      <a href="Pricing/Pricing.html" class="drawer-link">Pricing</a>
+      <a href="About/About.html" class="drawer-link">About</a>
+      <a href="Privacy-Policy/Privacy&Policy.html" class="drawer-link">Privacy & Policy</a>
+      <a href="Privacy-Policy/Privacy&Policy.html" class="drawer-link">Terms & Conditions</a>
+      
+
+      <a href="Pricing/Pricing.html#start" class="hiremebtn drawer-cta" id="drawerCta">
+        <span class="btn-label">Let’s Talk</span>
+        <span class="icon icon-arrow" aria-hidden="true"></span>
+      </a>
+    </nav>
+  </aside>
+  <div id="menuOverlay" class="menu-overlay" hidden></div>
+  <!-- ============== LEFT MENU DRAWER (MOBILE) (END) ============== -->
+
+
+
+
+
+
+  
+
+
+
+
+  <!-- ============ PAGE WRAPPER (END) ============ -->
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============ BRAND MARQUEE (START) ============ -->
+<section class="brand-marquee" aria-label="Trusted by brands">
+  <!-- === Title row (START) === -->
+  <div class="bm-head">
+    <span class="bm-rule" aria-hidden="true"></span>
+    <p class="bm-title">
+      Trusted by brands worldwide
+    </p>
+    <span class="bm-rule" aria-hidden="true"></span>
+  </div>
+  <!-- === Title row (END) === -->
+
+  <!-- === Viewport & Rail (START) === -->
+  <div class="bm-viewport">
+    <div class="bm-rail" id="bmRail" aria-live="off">
+      <ul class="bm-track" role="list">
+        <li class="bm-item">
+          <img src="Images/BrandMarquee/Logo1.svg" alt="Logoipsum">
+          <span class="bm-name">KingsVibes</span>
+        </li>
+        <li class="bm-item">
+          <img src="Images/BrandMarquee/Logo2.svg" alt="Sparrow">
+          <span class="bm-name">MockShark</span>
+        </li>
+        <li class="bm-item">
+          <img src="Images/BrandMarquee/Logo3.svg" alt="Bluebit">
+          <span class="bm-name">All Stars Miami</span>
+        </li>
+        <li class="bm-item">
+          <img src="Images/BrandMarquee/Logo4.svg" alt="Sunstripe">
+          <span class="bm-name">EnglishA2Z</span>
+        </li>
+        <li class="bm-item">
+          <img src="Images/BrandMarquee/Logo5.svg" alt="Orbitex">
+          <span class="bm-name">Exclusive Panjabi BD</span>
+        </li>
+        <li class="bm-item">
+          <img src="Images/BrandMarquee/Logo6.svg" alt="Academia">
+          <span class="bm-name">DSJ Textile</span>
+        </li>
+      </ul>
+      <!-- JS এখানে একই ট্র্যাক ক্লোন করে যোগ করবে -->
+    </div>
+  </div>
+  <!-- === Viewport & Rail (END) === -->
+</section>
+<!-- ============ BRAND MARQUEE (END) ============ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ================= KPI SECTION (START) ================= -->
+<section class="kpi" aria-label="Agency highlights">
+  <!-- ===== CONTAINER (START) ===== -->
+  <div class="kpi__container">
+
+    <!-- ===== TITLE (START) ===== -->
+    <h2 class="kpi__title slide-up">
+    Our agency blends strategy, creativity, and modern design thinking to help brands express their identity 
+      <span class="kpi_title-italic">clearly and connect with the right audience.</span>
+    </h2>
+    <!-- ===== TITLE (END) ===== -->
+
+    <!-- ===== KPI GRID (START) ===== -->
+    <div class="kpi__grid" role="list">
+
+      <div class="kpi__item slide-up" role="listitem">
+        <div class="kpi__number">
+          <span class="kpi__prefix" aria-hidden="true">+</span>
+          <span class="count" data-to="210">0</span>
+        </div>
+        <div class="kpi__caption">Successful Brand Projects</div>
+      </div>
+
+      <div class="kpi__divider" aria-hidden="true"></div>
+
+      <div class="kpi__item slide-up" role="listitem">
+        <div class="kpi__number">
+          <span class="kpi__prefix" aria-hidden="true">+</span>
+          <span class="count" data-to="5">0</span>
+        </div>
+        <div class="kpi__caption">Years of Creative Expertise</div>
+      </div>
+
+      <div class="kpi__divider" aria-hidden="true"></div>
+
+      <div class="kpi__item slide-up" role="listitem">
+        <div class="kpi__number">
+          <span class="kpi__prefix" aria-hidden="true">+</span>
+          <span class="count" data-to="120">0</span>
+        </div>
+        <div class="kpi__caption">Trusted Clients Worldwide</div>
+      </div>
+
+    </div>
+    <!-- ===== KPI GRID (END) ===== -->
+
+  </div>
+  <!-- ===== CONTAINER (END) ===== -->
+</section>
+<!-- ================= KPI SECTION (END) ================= -->
+
+
+
+
+
+
+
+
+<!-- Service Start -->
+<section id="services" class="services" aria-labelledby="services-title">
+  <div class="container">
+    <!-- ===== Header (START) ===== -->
+    <header class="services-head">
+      <h2 id="services-title" class="services-sub slide-up">
+        Smart Design Solutions
+        <span class="srv-sub-line2">
+          That <span class="srv-sub-italic">Elevate Your Brand</span>
+        </span>
+      </h2>
+    </header>
+    <!-- ===== Header (END) ===== -->
+
+    <!-- ===== Services Grid (START) ===== -->
+    <div class="srvscsncrt slide-up" role="list">
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-logo" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Logo & <br> Brand Identity</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-mockup" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Realistic <br> 3D Mockups</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-stationery" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Stationery <br> & Print Design</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-illustration" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Art & <br> Illustration</h4>
+      </div>
+
+      <div class="srv-card" role="listitem">
+        <span class="srv-card-ads" aria-hidden="true"></span>
+        <h4 class="crv-card-title">Social Media <br> & Ads Design</h4>
+      </div>
+    </div>
+    <!-- ===== Services Grid (END) ===== -->
+
+    <!-- ===== Bottom CTA (START) ===== -->
+    <div class="srvbttm slide-up" aria-labelledby="srvbttm-title">
+      <h2 id="srvbttm-title" class="srvbttm-title">
+        The Process Behind <br> Every <span class="srvbttm-italic">Great Design</span>
+      </h2>
+
+      <div class="srvbttm-btns">
+        <a class="srvbttm-btn srvbttm-hrme" href="#contact" aria-label="Start a Journey">
+          <span class="srvbttm-btntxt open-lead">Start a Project</span>
+          <span class="srvbttm-icon" aria-hidden="true"></span>
+        </a>
+
+        <a class="srvbttm-btn srvbttm-slsn" href="Service/Service.html" aria-label="Explore all Solutions">
+          <span class="srvbttm-btntxt">See all Solutions</span>
+          <span class="srvbttm-icon srvbttm-icon2" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+    <!-- ===== Bottom CTA (END) ===== -->
+  </div>
+</section>
+<!-- Service End -->
+
+
+
+
+
+
+<!-- ===== Work Process Section ===== -->
+<section class="work-process">
+  <div class="wrkp-container">
+
+    
+
+    <div class="wrkp-scsncrt">
+      <!--Card Start-->
+
+      <!-- Step 01 Cards -->
+        <div class="wrkp-card">
+        <span class="wrkpcrd1-step">Step 01</span>
+        <div class="wrkpcrd-shape1 wrkpcrd-type1">
+          <span class="wrkpcrd1-icon"></span>
+        <h4 class="wrkpcrd1-title">Research <br> & Discovery</h4>
+        </div>
+      </div>
+
+      <!-- Step 02 Cards -->
+        <div class="wrkp-card">
+        <div class="wrkpcrd-shape2 wrkpcrd-type2">
+        <h4 class="wrkpcrd2-title"> Plan <br> Strategy </h4>
+          <span class="wrkpcrd2-icon wrkpcard2-icon"></span>
+        </div>
+        <span class="wrkpcrd2-step">Step 02</span>
+      </div>
+
+      <!-- Step 03 Cards -->
+        <div class="wrkp-card">
+        <span class="wrkpcrd1-step">Step 03</span>
+        <div class="wrkpcrd-shape3 wrkpcrd-type1">
+          <span class="wrkpcrd3-icon"></span>
+        <h4 class="wrkpcrd1-title">Build <br> Design </h4>
+        </div>
+      </div>
+
+      <!-- Step 04 Cards -->
+        <div class="wrkp-card">
+        <div class="wrkpcrd-shape4 wrkpcrd-type2">
+        <h4 class="wrkpcrd2-title">Scale <br> Growth</h4>
+          <span class="wrkpcrd4-icon wrkpcard2-icon"></span>
+        </div>
+        <span class="wrkpcrd2-step">Step 04</span>
+      </div>
+
+      <!--Card End-->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- Tools Box -->
+<section class="toolsbox" aria-label="Tools we use">
+  <div class="tlbx-container">
+    <div class="tools-head">
+      <span class="tlbx-ttllne" aria-hidden="true"></span>
+      <h2 class="tools-title">
+        Tools We Use to Build <span class="tools-italic"> Better Brands</span>
+      </h2>
+      <span class="tlbx-ttllne" aria-hidden="true"></span>
+    </div>
+
+    <div class="tools-logos">
+      <!-- Adobe Photoshop -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="Images/Icons/ToolBox/photoshop.svg" alt="Adobe Photoshop">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Adobe Photoshop
+            <span class="tlbxlogo-info">Editing Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Adobe Illustrator -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="Images/Icons/ToolBox/illustrator.svg" alt="Adobe Illustrator">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Adobe Illustrator
+            <span class="tlbxlogo-info">Design Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- CLO 3D -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="Images/Icons/ToolBox/clo3d.png" alt="CLO 3D">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">CLO 3D
+            <span class="tlbxlogo-info">Rendering Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Figma -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="Images/Icons/ToolBox/figma.svg" alt="Figma">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Figma
+            <span class="tlbxlogo-info">Design Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Adobe InDesign -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="Images/Icons/ToolBox/indesign.svg" alt="Adobe InDesign">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Adobe InDesign
+            <span class="tlbxlogo-info">Design Tool</span>
+          </h3>
+        </div>
+      </div>
+
+      <!-- Adobe Lightroom -->
+      <div class="tlbx-logo">
+        <div class="tlbxlg-img">
+          <img src="Images/Icons/ToolBox/Blender.png" alt="Adobe Lightroom">
+        </div>
+        <div class="tlbxlg-info">
+          <h3 class="tlbxlg-title">Blender
+            <span class="tlbxlogo-info">3D Rendering</span>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="portfolio" id="home-portfolio">
+  <div class="portf-container">
+
+    <header class="portf-head">
+      <h2 id="services-title" class="services-sub slide-up">
+      Latest Projects that
+        <span class="srv-sub-line2">
+          Define <span class="srv-sub-italic">Our Creative Excellence</span>
+        </span>
+      </h2>
+
+      <div class="portf-head-btn">
+        <a href="Portfolio/Portfolio.html#top" class="portf-btn" aria-label="See all case studies on the Portfolio page">
+          <span class="portf-btn-text">View All Projects</span>
+          <span class="portf-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </header>
+
+    <div class="portfscsncrt">
+
+      <!-- Card 1 -->
+      <div class="portf-card">
+        <a class="portf-card-link" href="https://www.behance.net/gallery/237265327/Amoura-Contemporary-Fashion-Logo-Brand-Identity" aria-label="Open Fintpay – Fintech App case study">
+          <div class="portf-cart-img">
+            <img src="Portfolio/Images/AmouraThumnail.jpg" alt="Armora – Clothing Logo & Brand Guide preview">
+            <div class="portf-hover">
+              <span class="portf-card-icon" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="portf-card-info">
+            <h4 class="portf-card-title">Armora – Clothing Logo & Brand Guide</h4>
+            <div class="portf-card-tags-wrapper">
+              <span class="portf-card-tags">Brand Identity</span>
+              <span class="portf-card-tags">Case Study</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="portf-card">
+        <a class="portf-card-link" href="https://www.behance.net/gallery/237822673/Clothing-Instagram-Post-Apparel-Poster-Design" aria-label="Open Nurture Yogreen case study">
+          <div class="portf-cart-img">
+            <img src="Images/Portfolio/Fashion-Social-Media.jpg" alt="Fashion Social Media Design preview">
+            <div class="portf-hover">
+              <span class="portf-card-icon" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="portf-card-info">
+            <h4 class="portf-card-title">Fashion Social Media Design</h4>
+            <div class="portf-card-tags-wrapper">
+              <span class="portf-card-tags">Poster Manipulation</span>
+              <span class="portf-card-tags">Banner Design</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="portf-card">
+        <a class="portf-card-link" href="https://www.behance.net/gallery/179881121/E-commerce-Logo-Design-Brand-Identity" aria-label="Social Media Post for DMC Esports">
+          <div class="portf-cart-img">
+            <img src="Images/Portfolio/Esports-Social-Media.jpg" alt="Social Media Post for DMC Esports">
+            <div class="portf-hover">
+              <span class="portf-card-icon" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="portf-card-info">
+            <h4 class="portf-card-title">Social Media Post for DMC Esports</h4>
+            <div class="portf-card-tags-wrapper">
+              <span class="portf-card-tags">Esports Banner</span>
+              <span class="portf-card-tags">Social Media Design</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="portf-card">
+        <a class="portf-card-link" href="https://www.behance.net/gallery/241097489/T-Shirt-Mockup-for-Clothing-Brand" aria-label="Open FlowBank – Fintech case study">
+          <div class="portf-cart-img">
+            <img src="Images/Portfolio/T-Shirt-MockupforClothingBrand.jpg" alt="T-Shirt Mockup preview">
+            <div class="portf-hover">
+              <span class="portf-card-icon" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="portf-card-info">
+            <h4 class="portf-card-title">T-Shirt Mockup for a Clothing Brand</h4>
+            <div class="portf-card-tags-wrapper">
+              <span class="portf-card-tags">PSD Mockup</span>
+              <span class="portf-card-tags">Clothing Mockup</span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- Team Members -->
+<section class="teams" aria-label="Meet our team">
+<div class="teams-container">
+  <header class="abouttms-head">
+      <h2 id="abouttms-title" class="abouttms-sub slide-up">
+      Meet the Minds Behind
+        <span class="abouttms-sub-line2">
+          the <span class="abouttms-sub-italic">Work We Create</span>
+        </span>
+      </h2>
+    </header>
+    <!-- about-head End -->
+
+    <div class="teams-scsncrt">
+  <!-- Team Member 1 -->
+  <div class="tm-card">
+    <div class="tmcrd-img tm-card2">
+      <img src="Images/TeamMembers/Faysal2.png" alt="Team Member 1">
+    </div>
+    <div class="tmcrd-info">
+        <h4>MD AL Faysal</h4>
+        <span>Mockup Expert</span>
+      </div>
+  </div>
+
+  <!-- Team Member 2 -->
+  <div class="tm-card">
+    <div class="tmcrd-img tm-card2">
+      <img src="Images/TeamMembers/Rahad2.png" alt="Team Member 2">
+    </div>
+    <div class="tmcrd-info">
+        <h4>M.R. Rahad</h4>
+        <span>Social Media Dsigner</span>
+      </div>
+  </div>
+
+  <!-- Team Member 3 -->
+  <div class="tm-card">
+    <div class="tmcrd-img tm-card2">
+      <img src="Images/TeamMembers/Abir2.png" alt="Team Member 3">
+      
+    </div>
+    <div class="tmcrd-info">
+        <h4>Tamanna Akter</h4>
+        <span>Print Materials Expert</span>
+      </div>
+  </div>
+
+  <!-- Team Member 4 -->
+  <div class="tm-card ">
+    <div class="tmcrd-img tm-card2">
+      <img src="Images/TeamMembers/Ruzina2.png" alt="Team Member 4">
+    </div>
+    <div class="tmcrd-info">
+        <h4>Ruzina Akter</h4>
+        <span>Logo & Branding Expert</span>
+      </div>
+  </div>
+
+  <!-- teams-card end -->
+
+  
+</div>
+
+<!-- teams-scsncrt end -->
+</div>
+</section>
+
+
+
+
+
+
+
+
+<section class="client-review">
+  <div class="clntrvw-container">
+    <!-- শিরোনাম / হেডার -->
+    <header class="clntrvw-head">
+      <h2 id="clntrvw-title" class="clntrvw-sub slide-up">
+      Why Brands Love Working
+        <span class="clntrvw-sub-line2">
+          With <span class="clntrvw-sub-italic">Us Every Time</span>
+        </span>
+      </h2>
+    </header>
+
+    <!-- ভিউপোর্ট: কেবল ২টা কার্ডই দৃশ্যমান থাকবে; বাকি হাইড -->
+    <div class="clntrvw-viewport">
+      <!-- স্লাইডিং ট্র্যাক: translateX দিয়ে সরবে -->
+      <div class="clntrvwscsn">
+
+        <!-- ===== Card 1 ===== -->
+        <div class="clntrvw-card">
+          <div class="clntrvw-bgshape clntrvw-bgshape2">
+            <div class="clntrvw-cardtop">
+              <div class="clntrvw-cardtop-profile">
+                <div class="clntrvw-cardtop-profileimg">
+                  <img src="Images/Customer-Review/C01.png" alt="Client Photo">
+                </div>
+                <div class="clntrvw-cardtop-info">
+                  <h4 class="clntrvw-cardtop-infoname"> qjplair</h4>
+                  <span class="clntrvw-cardtop-inforole">United States</span>
+                </div>
+              </div>
+              <div class="clntrvw-cardtop-qtsnmark"></div>
+            </div>
+            <div class="clntrvw-comments">
+              <p class="clntrvw-comments-short">Excellent!</p>
+              <p class="clntrvw-comments-long">Great job delivering our request in a very timely manner. His attention to details and awesome extras goes above and beyond!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Card 2 ===== -->
+        <div class="clntrvw-card">
+          <div class="clntrvw-bgshape clntrvw-bgshape2">
+            <div class="clntrvw-cardtop">
+              <div class="clntrvw-cardtop-profile">
+                <div class="clntrvw-cardtop-profileimg">
+                  <img src="Images/Customer-Review/C02.png" alt="Client Photo">
+                </div>
+                <div class="clntrvw-cardtop-info">
+                  <h4 class="clntrvw-cardtop-infoname">finickyfashion</h4>
+                  <span class="clntrvw-cardtop-inforole">United States</span>
+                </div>
+              </div>
+              <div class="clntrvw-cardtop-qtsnmark"></div>
+            </div>
+            <div class="clntrvw-comments">
+              <p class="clntrvw-comments-short">Gread Agency!</p>
+              <p class="clntrvw-comments-long">Always a pleasure working with Hue Sixteen. The team consistently goes above and beyond. Highly recommended.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Card 3 ===== -->
+        <div class="clntrvw-card">
+          <div class="clntrvw-bgshape clntrvw-bgshape2">
+            <div class="clntrvw-cardtop">
+              <div class="clntrvw-cardtop-profile">
+                <div class="clntrvw-cardtop-profileimg">
+                  <img src="Images/Customer-Review/C03.png" alt="Client Photo">
+                </div>
+                <div class="clntrvw-cardtop-info">
+                  <h4 class="clntrvw-cardtop-infoname"> mben2b</h4>
+                  <span class="clntrvw-cardtop-inforole">France</span>
+                </div>
+              </div>
+              <div class="clntrvw-cardtop-qtsnmark"></div>
+            </div>
+            <div class="clntrvw-comments">
+              <p class="clntrvw-comments-short">Great service!</p>
+              <p class="clntrvw-comments-long">Hue Sixteen delivered great work. The photos look clean and professional, and they’re perfect for my mockups. I’m really happy with the results.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Card 4 ===== -->
+        <div class="clntrvw-card">
+          <div class="clntrvw-bgshape clntrvw-bgshape2">
+            <div class="clntrvw-cardtop">
+              <div class="clntrvw-cardtop-profile">
+                <div class="clntrvw-cardtop-profileimg">
+                  <img src="Images/Customer-Review/C03.png" alt="Client Photo">
+                </div>
+                <div class="clntrvw-cardtop-info">
+                  <h4 class="clntrvw-cardtop-infoname">mboughmari</h4>
+                  <span class="clntrvw-cardtop-inforole">Belgium</span>
+                </div>
+              </div>
+              <div class="clntrvw-cardtop-qtsnmark"></div>
+            </div>
+            <div class="clntrvw-comments">
+              <p class="clntrvw-comments-short">Gread Agency!</p>
+              <p class="clntrvw-comments-long">They delivered solid image editing with good quality work, though there’s room to improve the visual appeal and creativity. The workflow was smooth and communication was easy throughout the project.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Card 5 ===== -->
+        <div class="clntrvw-card">
+          <div class="clntrvw-bgshape clntrvw-bgshape2">
+            <div class="clntrvw-cardtop">
+              <div class="clntrvw-cardtop-profile">
+                <div class="clntrvw-cardtop-profileimg">
+                  <img src="Images/Customer-Review/R.png" alt="Client Photo">
+                </div>
+                <div class="clntrvw-cardtop-info">
+                  <h4 class="clntrvw-cardtop-infoname"> relentless</h4>
+                  <span class="clntrvw-cardtop-inforole">United Kingdom</span>
+                </div>
+              </div>
+              <div class="clntrvw-cardtop-qtsnmark"></div>
+            </div>
+            <div class="clntrvw-comments">
+              <p class="clntrvw-comments-short">Amazing!</p>
+              <p class="clntrvw-comments-long">Hue Sixteen was pleasant to work with. The team understands the first draft isn’t always final and handled revisions smoothly. Worth the price and highly recommended.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Card 6 ===== -->
+        <div class="clntrvw-card">
+          <div class="clntrvw-bgshape clntrvw-bgshape2">
+            <div class="clntrvw-cardtop">
+              <div class="clntrvw-cardtop-profile">
+                <div class="clntrvw-cardtop-profileimg">
+                  <img src="Images/Customer-Review/D.png" alt="Client Photo">
+                </div>
+                <div class="clntrvw-cardtop-info">
+                  <h4 class="clntrvw-cardtop-infoname"> donnazagari</h4>
+                  <span class="clntrvw-cardtop-inforole">Australia</span>
+                </div>
+              </div>
+              <div class="clntrvw-cardtop-qtsnmark"></div>
+            </div>
+            <div class="clntrvw-comments">
+              <p class="clntrvw-comments-short">Fantastic!</p>
+              <p class="clntrvw-comments-long">Very happy with the results. Already placed a second order. Great experience again with Hue Sixteen — we’ll be back.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- পিল (pagination): active পিল বড় হবে -->
+    <div class="clntrvw-crdpill">
+      <a class="clntrvw-crdpill-line clntrvw-crdpill-actv" href="#"></a>
+      <a class="clntrvw-crdpill-line" href="#"></a>
+      <a class="clntrvw-crdpill-line" href="#"></a>
+      <a class="clntrvw-crdpill-line" href="#"></a>
+      <a class="clntrvw-crdpill-line" href="#"></a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="faq" aria-label="Frequently Asked Questions">
+  <div class="faq-container">
+    <header class="faq-head">
+      <h2 id="faq-title" class="faq-sub slide-up">
+        Clear Answers to
+        <span class="faq-sub-line2">
+          your <span class="faq-sub-italic">Important Questions</span>
+        </span>
+      </h2>
+    </header>
+
+    <div class="faqcrdscsn">
+      <!-- Card 1 -->
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-1" aria-expanded="false">
+          <h3 class="faq-qsn">What services does Hue Sixteen provide?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-1" class="faq-ans" role="region" aria-labelledby="qsn-1">
+          Hue Sixteen is a creative graphic design agency offering branding, visual design, and both digital and print design solutions.
+        </div>
+      </article>
+
+      <!-- Duplicate cards as needed -->
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-2" aria-expanded="false">
+          <h3 class="faq-qsn">How can I contact you before starting a project?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-2" class="faq-ans" role="region">
+          You can reach us through our website contact form or email. We usually respond within 24 hours.
+        </div>
+      </article>
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">What information do you need to start a project?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          We typically need a brief about your brand, goals, target audience, and any references. A clear brief helps us deliver better results.
+        </div>
+      </article>
+
+
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">Do you offer revisions?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          Yes, every project includes a set number of revisions. Our goal is to make sure you are satisfied with the final outcome.
+        </div>
+      </article>
+
+
+
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">How long does a project usually take?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          Delivery time depends on the project scope. We always share a clear timeline before starting the work.
+        </div>
+      </article>
+
+
+
+
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">What file formats will I receive?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          Final files are delivered in standard, ready-to-use formats based on your project needs.
+        </div>
+      </article>
+
+
+
+
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">Do you work with international clients?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          Yes, we work with both local and international clients on a regular basis.
+        </div>
+      </article>
+
+
+
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">How does the payment process work?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          Payment details are shared once the project is confirmed. Depending on the project, an advance payment may be required.
+        </div>
+      </article>
+
+
+
+
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">Do you accept custom design requests?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          Absolutely. If you have a unique idea or specific requirement, we can create a custom solution for you.
+        </div>
+      </article>
+
+
+
+
+      <article class="faq-card" aria-expanded="false">
+        <button class="faq-toggle" aria-controls="ans-3" aria-expanded="false">
+          <h3 class="faq-qsn">Why should I choose Hue Sixteen?</h3>
+          <span class="faq-icon-pluscross" aria-hidden="true"></span>
+        </button>
+        <div id="ans-3" class="faq-ans" role="region">
+          We focus on more than just design. We understand your goals, communicate clearly, and deliver work that adds long-term value.
+      </article>
+
+      
+
+      <!-- Add more as you need -->
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="footer">
+<div class="footer-container">
+<div class="ftr-top">
+  <!-- Brand Info Start -->
+  <div class="ftrtop-brndinfo">
+    <div class="ftrtop-brndlogo">
+      <img src="Images/Logo.png">
+      <h1>Hue Sixteen</h1>
+    </div>
+    <p>We turn concepts into clean, effective visuals that strengthen communication and build lasting brand clarity for growing brands. </p>
+    <div class="ftrtop-binf-sclicn">
+      <a href="https://www.facebook.com/huesixteen"><span class=" ftrtop-binf-fb ftrtop-binf-sclicn-hvr" ></span></a>
+    <a href="https://www.instagram.com/gximdalfaysal"><span class=" ftrtop-binf-ig ftrtop-binf-sclicn-hvr" ></span></a>
+    <a href="https://www.linkedin.com/in/gximdalfaysal"><span class=" ftrtop-binf-in ftrtop-binf-sclicn-hvr" ></span></a>
+    <a href="https://www.youtube.com/@huesixteen"><span class=" ftrtop-binf-yt ftrtop-binf-sclicn-hvr" ></span></a>
+    </div>
+  </div>
+  <!-- Brand Info End -->
+
+   <div class="qcklnk-svr">
+    <!-- Quick Link Start -->
+  <div class="ftrtop-qcklnk">
+    <h3>Quick Links</h3>
+    <div class="ftrtop-qcklnk-texts">
+      <a href="Index.html"><span>Home</span></a>
+      <a href="Service/service.html"><span>Service</span></a>
+      <a href="Portfolio/portfolio.html"><span>Portfolio</span></a>
+      <a href="Pricing/pricing.html"><span>Pricing</span></a>
+      <a href="About/about.html"><span>About</span></a>
+      <a href="Privacy-Policy/Privacy&Policy.html"><span>Privacy & Policy</span></a>
+      <a href="Terms-Conditions/Terms&Conditions.html"><span>Terms & Conditions</span></a>
+    </div>
+  </div>
+  <!-- Quick Link End -->
+
+   <!-- Service Start -->
+  <div class="ftrtop-srv">
+    <h3>Service</h3>
+    <div class="ftrtop-srv-texts">
+      <a href="Service/service.html#service-page-area"><span>Logo & Brand</span></a>
+      <a href="Service/service.html#service-page-area"><span>PSD Mockups</span></a>
+      <a href="Service/service.html#service-page-area"><span>Stationery</span></a>
+      <a href="Service/service.html#service-page-area"><span>Illustration</span></a>
+      <a href="Service/service.html#service-page-area"><span>Social Ads</span></a>
+    </div>
+  </div>
+   </div>
+  <!-- Service End -->
+
+   <!-- Subscribe Start -->
+<div class="ftrtop-subscribe">
+  <h1> Get the Latest Inspiration </h1>
+
+  <form id="footerSubscribeForm" class="fttpsbcrb-form" action="#" method="post" novalidate>
+    <input id="footerEmail" type="email" placeholder="Enter your email *" required>
+    <p id="footerError" class="input-error" aria-live="polite" hidden>
+      Enter a valid email (e.g., name@email.com)
+    </p>
+    <button type="submit">Subscribe Now</button>
+  </form>
+</div>
+
+<!-- Footer subscribe toast (separate from panel) -->
+<div id="footerToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  <span>You’ve successfully subscribed. You’ll now receive updates.</span>
+</div>
+
+<!-- Subscribe End -->
+
+
+
+</div>
+<!-- Footer Top End -->
+
+<!-- Footer Bottom Start -->
+<div class="ftr-bottom">
+  <p>© 2025 HUE SIXTEEN. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+
+
+
+
+
+
+
+
+  <!-- JS -->
+   <!-- EmailJS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("cy-xB77TUrofN4z1z");
+</script>
+
+
+
+
+<script src="Index.js" defer></script>
+
+
+</body>
+</html>

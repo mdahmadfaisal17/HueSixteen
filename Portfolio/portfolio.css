@@ -1,0 +1,46 @@
+
+
+
+/* FIX: Match landing page drawer input (correct for service page) */
+.site-panel .panel-form input {
+  width: 100% !important;
+  height: 42px !important;
+  padding: 0 12px !important;
+  border: 1px solid rgba(0,0,0,.12) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  font: inherit !important;
+}
+
+.site-panel .panel-form button,
+.site-panel .panel-submit {
+  height: 42px !important;
+  width: 46px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 10px !important;
+}
+
+
+/* FIX: Input + Arrow button same row (match landing page) */
+.site-panel .panel-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.site-panel .panel-form-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.site-panel .panel-form-row input {
+  flex: 1 !important;       /* fills full width */
+}
+
+.site-panel .panel-form-row button,
+.site-panel .panel-submit {
+  flex-shrink: 0 !important;
+}
+

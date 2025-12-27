@@ -1,0 +1,225 @@
+/* ====== Base ====== */
+:root{
+  --brand:#7364ff;
+  --accent:#7364ff;
+  --ink:#121212;
+  --muted:#555;
+  --line:rgba(0,0,0,0.08);
+  --card: #ffffff;
+  --bg:#fbfbff;
+  --radius:18px;
+  --container:1200px;
+}
+
+
+
+
+.srvpg-service-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+.wrkprcstext-srvcta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+
+
+
+
+
+/* ============ Vertical Long Arrow (START) ============ */
+.longline-arrow{
+  display:flex;
+  justify-content:center;
+  margin: 10px 0 8px;
+  padding-bottom: 1px;  /* ⬅ margin collapse বন্ধ */
+  /* অথবা: overflow: hidden; */
+}
+
+.arrow-svg-vertical {
+  width: 20px;      /* arrow er width */
+  height: 150px;    /* total height of arrow */
+}
+/* ============ Vertical Long Arrow (END) ============ */
+
+
+
+
+
+
+
+
+/* ============ Service Details (START) ============ */
+.srvdtls-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+/* GRID WRAPPER
+   - 3 columns by default
+   - Falls back to 2 and then 1 on smaller screens */
+.srvdtlscrdscsn {
+  display: grid;                           /* ⬅ turn on CSS grid */
+  grid-template-columns: repeat(3, 1fr);   /* ⬅ 3 columns */
+  gap: 20px;                               /* ⬅ space between cards */
+  align-items: stretch;                    /* ⬅ cards same height per row */
+}
+
+/* CARD BASE
+   - remove fixed width so grid can manage sizing */
+.srvdtls-card {
+  padding: 25px 20px;
+  border-radius: 10px;
+  background-color: #f9f9ff;
+  color: #313131;
+  display: flex;                /* ⬅ let button stick to bottom if needed */
+  flex-direction: column;
+  border: 1px solid #7364ff2d;
+  /* width: 40%;  ⬅ REMOVE this line */
+}
+
+.srvdtls-card-key {
+  width: fit-content;
+  font-size: 14px;
+  border: 1px solid #7364ff;
+  padding: 3px 12px;
+  border-radius: 20px;
+  color: #7364ff;
+  font-weight: 500;
+}
+
+.srvdtls-card h2 { margin: 12px 0 10px;}
+.srvdtls-card h3 { margin: 16px 0 8px; }
+.srvdtls-card p { color: #807f88; }
+
+.srvdtls-card ul li {
+  line-height: 2;
+  color: #807f88;
+}
+
+/* Button row */
+.srvdtls-card-bttn {
+  margin-top: auto;             /* ⬅ keep button at the bottom of the card */
+  text-decoration: none;
+  color: #7364ff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+/* Masked icon – you can change color with 'background' */
+.srvdtls-card-bttn-icon {
+  width: 9px;
+  height: 9px;
+  display: inline-block;
+  background: #7364ff;          /* ⬅ change this to recolor the arrow */
+  -webkit-mask: url("../Images/Icons/Arrow.svg") no-repeat center/contain;
+          mask: url("../Images/Icons/Arrow.svg") no-repeat center/contain;
+}
+
+/* ======= Responsive breakpoints ======= */
+/* <= 1024px → 2 columns */
+@media (max-width: 1024px) {
+  .srvdtlscrdscsn {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* <= 640px → 1 column */
+@media (max-width: 640px) {
+  .srvdtlscrdscsn {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============ Service Details (END) ============ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FIX: Match landing page drawer input (correct for service page) */
+.site-panel .panel-form input {
+  width: 100% !important;
+  height: 42px !important;
+  padding: 0 12px !important;
+  border: 1px solid rgba(0,0,0,.12) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  font: inherit !important;
+}
+
+.site-panel .panel-form button,
+.site-panel .panel-submit {
+  height: 42px !important;
+  width: 46px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 10px !important;
+}
+
+
+/* FIX: Input + Arrow button same row (match landing page) */
+.site-panel .panel-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.site-panel .panel-form-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.site-panel .panel-form-row input {
+  flex: 1 !important;       /* fills full width */
+}
+
+.site-panel .panel-form-row button,
+.site-panel .panel-submit {
+  flex-shrink: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

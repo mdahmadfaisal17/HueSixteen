@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- CSS (main site styles) -->
+  <link rel="stylesheet" href="../Index.css">
+  <link rel="stylesheet" href="../Responsive.css">
+  <link rel="stylesheet" href="Pricing.css">
+
+  <link rel="icon" type="image/png" href="../Images/Favicon.png">
+  <title>HUE SIXTEEN — Pricing</title>
+</head>
+<body>
+
+  <!-- ===== HERO + HEADER ===== -->
+  <section class="hero" aria-label="Intro">
+    <header class="header">
+      <div class="container_nav">
+        <a href="../index.html" class="brandtext" aria-label="Hue Sixteen — Home">
+          <img src="../Images/Logo.png" class="headerlogo" alt="Hue Sixteen logo">
+          HUE SIXTEEN
+        </a>
+
+        <nav id="primary-nav" class="menu" aria-label="Primary navigation">
+          <a href="../index.html" class="nav-link" data-text="Home"><span class="t1">Home</span></a>
+          <a href="../Service/service.html" class="nav-link" data-text="Services"><span class="t1">Services</span></a>
+          <a href="../Portfolio/Portfolio.html" class="nav-link" data-text="Portfolio"><span class="t1">Portfolio</span></a>
+          <a href="./Pricing.html" class="nav-link" data-text="Pricing" aria-current="page"><span class="t1">Pricing</span></a>
+          <a href="../About/About.html" class="nav-link" data-text="About"><span class="t1">About</span></a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="panel-toggle" id="infoToggle" type="button" aria-controls="sitePanel" aria-expanded="false" aria-label="Open info panel">
+            <span class="icon-app" aria-hidden="true"></span>
+          </button>
+
+          <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+            <span class="icon-menu" aria-hidden="true"></span>
+          </button>
+
+          <a class="hiremebtn hide-mobile open-lead" id="ctaTalk" aria-label="Start a project">
+            <span class="btn-label">Let’s Talk</span>
+            <span class="icon icon-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Minimal hero text (optional) -->
+    <section class="hero-inner" aria-label="Pricing intro">
+      <h1 class="hero-title">
+        <span class="line slide-up">Choose a package</span>
+        <span class="line slide-up">that fits <span class="swash slide-up"> your stage</span></span>
+      </h1>
+    </section>
+  </section>
+
+
+
+
+
+
+<!-- ============== LEAD POPUP BAR (START) ============== -->
+<div id="leadOverlay" class="lead-overlay" hidden></div>
+
+<aside id="leadModal" class="lead-modal" aria-hidden="true" role="dialog" aria-labelledby="leadTitle">
+  <button type="button" class="lead-close" id="leadClose" aria-label="Close">&times;</button>
+
+  <div class="lead-content">
+    <h3 id="leadTitle" class="lead-title">Start a quick conversation</h3>
+
+    <!-- NEW: EmailJS Integrated Form -->
+    <form id="leadForm" class="lead-form" novalidate>
+
+      <!-- Name -->
+      <div class="field">
+        <label for="leadName" class="field-label">Name</label>
+        <input id="leadName" name="name" type="text" placeholder="Your name" required>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label for="leadEmail" class="field-label">Email</label>
+        <input id="leadEmail" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="field">
+        <label for="leadWhats" class="field-label">WhatsApp Number (Required)</label>
+        <input id="leadWhats" name="whatsapp" type="tel" placeholder="+8801XXXXXXXXX"
+               inputmode="tel" pattern="^\+?[0-9\s\-()]{8,20}$" required>
+        <small class="hint">Add country code (e.g., +880…)</small>
+      </div>
+
+      <!-- Service Dropdown -->
+      <div class="field">
+        <label for="leadService" class="field-label">Select your Service</label>
+        <select id="leadService" name="service" required>
+          <option value="" selected disabled>Select your Service</option>
+          <option>Logo & Brand Identity</option>
+          <option>UI/UX Design</option>
+          <option>Packaging Design</option>
+          <option>Social Media Design</option>
+          <option>Realistic Mockups</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <!-- Budget Dropdown -->
+      <div class="field">
+        <label for="leadBudget" class="field-label">Select your Budget (USD)</label>
+        <select id="leadBudget" name="budget" required>
+          <option value="" selected disabled>Select your budget</option>
+          <option value="100">$100</option>
+          <option value="250">$250</option>
+          <option value="500">$500</option>
+          <option value="1000">$1000</option>
+          <option value="2000">$2000</option>
+          <option value="custom">Custom</option>
+        </select>
+
+        <!-- Custom Budget -->
+        <div id="customBudgetWrap" class="custom-budget" hidden>
+          <label for="customBudget" class="sr-only">Custom budget (USD)</label>
+          <div class="currency">
+            <input id="customBudget" name="customBudget" type="number" min="1" step="1" placeholder="Amount">
+            <span class="suffix">USD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preferred Contact Method -->
+      <div class="field">
+        <label for="leadContact" class="field-label">How can we reach you fastest?</label>
+        <select id="leadContact" name="contact" required>
+          <option value="" selected disabled>Select preferred channel</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="email">Email</option>
+        </select>
+        <small class="hint">Choose the channel you check most — we'll use this first.</small>
+      </div>
+
+      <!-- Description -->
+      <div class="field field-full">
+        <label for="leadDesc" class="field-label">Project Description</label>
+        <textarea id="leadDesc" name="description" rows="4" placeholder="Write a short overview…"></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="actions">
+        <button type="submit" class="lead-submit">
+          Submit <span class="icon icon-arrow" aria-hidden="true"></span>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</aside>
+<!-- ============== LEAD POPUP BAR (END) ============== -->
+
+<!-- ============== GLOBAL TOAST (SUCCESS BAR) (START) ============== -->
+<div id="leadToast" class="lead-toast" role="status" aria-live="polite" hidden>
+  Thanks for your interest. We’ll get back to you shortly.
+</div>
+<!-- ============== GLOBAL TOAST (SUCCESS BAR) (END) ============== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ===== Right info drawer ===== -->
+  <aside id="sitePanel" class="site-panel" aria-hidden="true">
+    <div class="panel-head">
+      <a href="../index.html" class="panel-brand-text" aria-label="Hue Sixteen — Home">
+        <img src="../Images/Logo.png" class="panel-logo" alt="Hue Sixteen logo">
+        HUE SIXTEEN
+      </a>
+      <button class="panel-close" id="panelClose" type="button" aria-label="Close panel">&times;</button>
+    </div>
+
+    <div class="panel-body">
+      <h3 class="panel-title">We are a Modern Digital Brand Agency.</h3>
+
+      <section class="panel-block" aria-label="Office address">
+        <h4 class="panel-sub">Dhaka</h4>
+        <p class="panel-text">
+          617/312 Delpara, Sharifbag, Fatullah,<br>
+          Kutubpur-1421, Narayanganj.
+        </p>
+      </section>
+
+      <section class="panel-block" aria-label="Contact methods">
+        <div class="panel-row">
+          <img src="../Images/Icons/Email.svg" class="panel-ico" alt="Email icon">
+          <div>
+            <div class="muted">Send Us Mail</div>
+            <a href="mailto:info@example.com" class="panel-link">gfxhue16@gmail.com</a>
+          </div>
+        </div>
+        <div class="panel-row">
+          <img src="../Images/Icons/WhatsApp.svg" class="panel-ico" alt="WhatsApp icon">
+          <div>
+            <div class="muted">Send Message on WhatsApp</div>
+            <a href="https://wa.me/8801600140898" rel="noopener" class="panel-link">+8801600140898</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel-block">
+  <h4 class="panel-sub">Subscribe To Get Free Update.</h4>
+
+  <form class="panel-form" method="POST">
+    <div class="panel-form-row">
+      <input type="email" placeholder="Enter Email" required>
+      <button type="submit" class="panel-submit">
+        <span class="icon icon-arrow"></span>
+      </button>
+    </div>
+  </form>
+
+  <p class="muted small">
+    By subscribing, you agree to our <a href="#" class="panel-link">privacy policy</a>.
+  </p>
+</section>
+
+      <section class="panel-block social-row" aria-label="Social links">
+        <a href="https://www.facebook.com/huesixteen" aria-label="Facebook"><img src="../Images/Icons/facebook.svg" alt="Facebook"></a>
+        <a href="https://www.linkedin.com/in/gximdalfaysal" aria-label="LinkedIn"><img src="../Images/Icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://www.instagram.com/gximdalfaysal" aria-label="Instagram"><img src="../Images/Icons/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/@huesixteen" aria-label="YouTube"><img src="../Images/Icons/youtube.svg" alt="YouTube"></a>
+      </section>
+    </div>
+  </aside>
+  <div id="panelOverlay" class="panel-overlay" hidden></div>
+
+  <!-- ===== Mobile menu drawer ===== -->
+  <aside id="mobileMenu" class="menu-drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <img src="../Images/HeaderLogo2.png" class="drawer-logo" alt="Hue Sixteen logo">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">&times;</button>
+    </div>
+
+    <nav class="drawer-body" aria-label="Mobile navigation">
+      <a href="../index.html" class="drawer-link">Home</a>
+      <a href="../Service/service.html" class="drawer-link">Services</a>
+      <a href="../Portfolio/Portfolio.html" class="drawer-link">Portfolio</a>
+      <a href="./Pricing.html" class="drawer-link" aria-current="page">Pricing</a>
+      <a href="../About/About.html" class="drawer-link">About</a>
+      <a href="../Privacy-Policy/Privacy&Policy.html" class="drawer-link">Privacy & Policy</a>
+      <a href="../Terms-Conditions/Terms&Conditions.html" class="drawer-link">Terms & Conditions</a>
+
+      <a href="#start" class="hiremebtn drawer-cta" id="drawerCta">
+        <span class="btn-label">Let’s Talk</span>
+        <span class="icon icon-arrow" aria-hidden="true"></span>
+      </a>
+    </nav>
+  </aside>
+  <div id="menuOverlay" class="menu-overlay" hidden></div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- ===== PACKAGES ===== -->
+    <section id="packages" class="srv-packages" aria-label="Branding packages">
+      <div class="pk-container">
+
+        <div class="pk-grid">
+          <!-- Start -->
+          <article class="pk-card">
+            <div class="pktop">
+              <h3 class="pk-name">Start — For New Brands</h3>
+            <p class="pk-price">
+            <span class="pk-price-symbol">$</span>
+            50
+            <span class="pk-price-currency">USD</span>
+            </p>
+            <p class="pk-suitablebrand">
+            Great for getting started
+            </p>
+            <ul class="pk-points">
+  <li>Ideal for starting small projects</li>
+  <li>Simple and focused execution</li>
+  <li>Deliverables ready to use immediately</li>
+</ul>
+
+            </div>
+
+
+            <div class="pkbottom">
+              <div class="pk-meta">
+              <span class="pk-revision">
+                <span class="pk-rrvsn-icon">
+                </span>
+                Revisions: 2 rounds
+              </span>
+
+              <span class="pk-timeline">
+                <span class="pk-tmln-icon">
+                </span>
+              Timeline: 5–7 days
+              </span>
+            </div>
+            <button class="pk-card-bttn open-lead" data-plan="Start">Start a Project</button>
+            <p class="pk-cta-note">You’ll hear from us within an hour.</p>
+            </div>
+          </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!-- Grow -->
+          <article class="pk-card pk-popular">
+            <div class="pk-badge">Most Popular</div>
+            <div class="pktop">
+              <h3 class="pk-name">Grow — Build Recognition</h3>
+            <p class="pk-price">
+            <span class="pk-price-symbol">$</span>
+            200
+            <span class="pk-price-currency">USD</span>
+            </p>
+
+            <p class="pk-suitablebrand">
+            Designed for mid-scale projects
+            </p>
+            <ul class="pk-points">
+  <li>Enhanced quality with more attention to detail</li>
+  <li>Work aligned with your goals for better results</li>
+  <li>Editable source files included</li>
+</ul>
+
+            </div>
+
+
+            <div class="pkbottom">
+              <div class="pk-meta">
+              <span class="pk-revision">
+                <span class="pk-rrvsn-icon">
+                </span>
+                Revisions: 5 rounds
+              </span>
+
+              <span class="pk-timeline">
+                <span class="pk-tmln-icon">
+                </span>
+              Timeline: 5–10 days
+              </span>
+            </div>
+            <button class="pk-card-bttn open-lead" data-plan="Grow">Start a Project</button>
+            <p class="pk-cta-note">You’ll hear from us within an hour.</p>
+            </div>
+          </article>
+
+
+
+
+          <!-- Scale -->
+          <article class="pk-card">
+            <div class="pktop">
+            <h3 class="pk-name">Scale — Go Premium & Consistent</h3>
+            <p class="pk-price">Custom Quote</p>
+            <p class="pk-suitablebrand">
+            Tailored for complex or long-term needs
+            </p>
+            <ul class="pk-points">
+  <li>We discuss your needs first to shape the project</li>
+  <li>Flexible and tailored approach to match your vision</li>
+  <li>Delivered in any format you require</li>
+</ul>
+
+            </div>
+            <div class="pkbottom">
+              <div class="pk-meta">
+              <span class="pk-revision">
+                <span class="pk-rrvsn-icon">
+                </span>
+                Revisions: Unlimited
+              </span>
+
+              <span class="pk-timeline">
+                <span class="pk-tmln-icon">
+                </span>
+              Timeline: up to 30 days
+              </span>
+            </div>
+            <button class="pk-card-bttn open-lead" data-plan="Scale">Start a Project</button>
+            <p class="pk-cta-note">You’ll hear from us within an hour.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="pk-note">
+          Timeline starts after brief & advance. New directions after selection are billed separately. Full commercial rights upon final payment.
+        </p>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="ftr-top">
+        <div class="ftrtop-brndinfo">
+          <div class="ftrtop-brndlogo">
+            <img src="../Images/Logo.png" alt="Hue Sixteen logo">
+            <h1>Hue Sixteen</h1>
+          </div>
+          <p>We craft high-performance digital experiences that drive real business results.</p>
+          <div class="ftrtop-binf-sclicn">
+            <a href="#"><span class="ftrtop-binf-fb ftrtop-binf-sclicn-hvr"></span></a>
+            <a href="#"><span class="ftrtop-binf-ig ftrtop-binf-sclicn-hvr"></span></a>
+            <a href="#"><span class="ftrtop-binf-in ftrtop-binf-sclicn-hvr"></span></a>
+            <a href="#"><span class="ftrtop-binf-yt ftrtop-binf-sclicn-hvr"></span></a>
+          </div>
+        </div>
+
+        <div class="qcklnk-svr">
+          <div class="ftrtop-qcklnk">
+            <h3>Quick Links</h3>
+            <div class="ftrtop-qcklnk-texts">
+              <a href="../index.html"><span>Home</span></a>
+              <a href="../About/About.html"><span>About</span></a>
+              <a href="../Portfolio/Portfolio.html"><span>Portfolio</span></a>
+              <a href="./Pricing.html"><span>Contact</span></a>
+              <a href="../Privacy-Policy/Privacy&Policy.html"><span>Privacy & Policy</span></a>
+              <a href="../Terms-Conditions/Terms&Conditions.html"><span>Terms & Conditions</span></a>
+            </div>
+          </div>
+
+          <div class="ftrtop-srv">
+            <h3>Service</h3>
+            <div class="ftrtop-srv-texts">
+              <a href="#"><span>Logo & Brand</span></a>
+              <a href="#"><span>PSD Mockups</span></a>
+              <a href="#"><span>Stationery</span></a>
+              <a href="#"><span>Illustration</span></a>
+              <a href="#"><span>Social Ads</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ftrtop-subscribe">
+          <h1> Get the Latest Inspiration </h1>
+          <form class="fttpsbcrb-form" action="#" method="post">
+            <input id="fttpsbcrb-email" type="email" placeholder="Enter your email *" required>
+            <button type="submit">Subscribe Now</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="ftr-bottom">
+        <p>© 2025 HUE SIXTEEN. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+   <!-- EmailJS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("cy-xB77TUrofN4z1z");
+</script>
+
+
+  <script src="../Index.js" defer></script>
+</body>
+</html>
