@@ -1,18 +1,28 @@
 import { v2 as cloudinary } from "cloudinary";
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
-const apiKey = process.env.CLOUDINARY_API_KEY;
-const apiSecret = process.env.CLOUDINARY_API_SECRET;
+const cleanEnvValue = (value: string | undefined) => {
+  if (!value) {
+    return "";
+  }
 
-if (!cloudName || !apiKey || !apiSecret) {
-  throw new Error("Missing Cloudinary environment variables.");
-}
+  return value.trim().replace(/^['\"]|['\"]$/g, "");
+};
 
-cloudinary.config({
-  cloud_name: cloudName,
-  api_key: apiKey,
-  api_secret: apiSecret,
-});
+const ensureCloudinaryConfigured = () => {
+  const cloudName = cleanEnvValue(process.env.CLOUDINARY_CLOUD_NAME);
+  const apiKey = cleanEnvValue(process.env.CLOUDINARY_API_KEY);
+  const apiSecret = cleanEnvValue(process.env.CLOUDINARY_API_SECRET);
+
+  if (!cloudName || !apiKey || !apiSecret) {
+    throw new Error("Missing Cloudinary environment variables.");
+  }
+
+  cloudinary.config({
+    cloud_name: cloudName,
+    api_key: apiKey,
+    api_secret: apiSecret,
+  });
+};
 
 type UploadableImage = {
   type: string;
@@ -20,6 +30,8 @@ type UploadableImage = {
 };
 
 export const uploadImageToCloudinary = async (file: UploadableImage, folder: string) => {
+  ensureCloudinaryConfigured();
+
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
   const dataUri = `data:${file.type};base64,${buffer.toString("base64")}`;

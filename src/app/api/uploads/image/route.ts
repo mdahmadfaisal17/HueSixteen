@@ -68,7 +68,18 @@ export async function POST(request: NextRequest) {
       publicId: uploadResult.public_id,
     });
   } catch (error) {
-    const message = error instanceof Error && error.message ? error.message : "Failed to upload image.";
+    const nestedMessage =
+      typeof error === "object" &&
+      error !== null &&
+      "error" in error &&
+      typeof (error as { error?: unknown }).error === "object" &&
+      (error as { error?: { message?: unknown } }).error !== null &&
+      "message" in ((error as { error?: { message?: unknown } }).error || {})
+        ? String((error as { error?: { message?: unknown } }).error?.message || "")
+        : "";
+
+    const directMessage = error instanceof Error && error.message ? error.message : "";
+    const message = directMessage || nestedMessage || "Failed to upload image.";
     return NextResponse.json({ message }, { status: 500 });
   }
 }
