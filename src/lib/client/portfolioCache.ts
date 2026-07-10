@@ -15,7 +15,7 @@ type PortfolioCachePayload = {
 };
 
 const CACHE_KEY = "huesixteen:portfolios:cache";
-const CACHE_TTL_MS = 60 * 1000;
+const CACHE_TTL_MS = 0;
 
 let inMemoryCache: PortfolioCachePayload | null = null;
 
@@ -69,7 +69,7 @@ export const fetchPortfoliosCached = async (options?: { force?: boolean }) => {
     }
   }
 
-  const response = await fetch("/api/portfolios");
+  const response = await fetch("/api/portfolios", { cache: "no-store" });
 
   if (!response.ok) {
     throw new Error("Failed to fetch portfolios.");

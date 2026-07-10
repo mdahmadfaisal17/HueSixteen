@@ -21,6 +21,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Cropper, { Area } from "react-easy-crop";
 import { blogPosts } from "@/lib/blogPosts";
+import { clearPortfolioCache } from "@/lib/client/portfolioCache";
 
 type EditorFormatAction = "bold" | "italic" | "highlight" | "h1" | "h2" | "h3" | "point" | "clear";
 
@@ -376,7 +377,7 @@ export default function AdminPage() {
   }, {});
 
   const loadBlogsFromBackend = async () => {
-    const response = await fetch("/api/blogs", { cache: "no-store" });
+    const response = await fetch("/api/blogs?scope=admin", { cache: "no-store" });
 
     if (!response.ok) {
       return;
@@ -522,16 +523,25 @@ export default function AdminPage() {
     });
 
     if (!response.ok) {
+      const responseText = await response.text().catch(() => "");
+      let responseMessage = "";
+
+      try {
+        const parsed = JSON.parse(responseText) as { message?: unknown };
+        responseMessage = typeof parsed?.message === "string" ? parsed.message : "";
+      } catch {
+        responseMessage = responseText.trim();
+      }
+
       if (response.status === 401) {
-        throw new Error("Admin session expired. Please log in again.");
+        throw new Error(responseMessage || "Admin session expired. Please log in again.");
       }
 
       if (response.status === 403) {
-        throw new Error("Request blocked by origin policy. Please refresh the page and try again.");
+        throw new Error(responseMessage || "Request blocked by origin policy. Please refresh the page and try again.");
       }
 
-      const data = await response.json().catch(() => null);
-      throw new Error(data?.message || "Failed to upload image.");
+      throw new Error(responseMessage || `Failed to upload image (HTTP ${response.status}).`);
     }
 
     const data = await response.json();
@@ -734,6 +744,7 @@ export default function AdminPage() {
         }
       }
 
+      clearPortfolioCache();
       await loadPortfolioFromBackend();
     } catch {
       return;
@@ -756,6 +767,7 @@ export default function AdminPage() {
         return;
       }
 
+      clearPortfolioCache();
       await loadPortfolioFromBackend();
     } catch {
       return;

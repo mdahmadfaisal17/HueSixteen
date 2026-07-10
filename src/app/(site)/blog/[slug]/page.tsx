@@ -3,7 +3,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getBlogBySlug, registerBlogView } from "@/lib/server/contentRepository";
+import { getPublishedBlogBySlug, registerBlogView } from "@/lib/server/contentRepository";
 import { sanitizeRichText } from "@/lib/server/sanitizeRichText";
 
 type BlogDetailsPageProps = {
@@ -12,9 +12,25 @@ type BlogDetailsPageProps = {
   }>;
 };
 
+const normalizeOverlongHeadings = (html: string) => {
+  return html.replace(/<(h[1-3])([^>]*)>([\s\S]*?)<\/\1>/gi, (full, _tag, attrs, inner) => {
+    const plainText = inner
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    // If a long paragraph is accidentally saved as a heading, render it as normal paragraph text.
+    if (plainText.length > 140) {
+      return `<p${attrs}>${inner}</p>`;
+    }
+
+    return full;
+  });
+};
+
 export async function generateMetadata({ params }: BlogDetailsPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getBlogBySlug(slug);
+  const post = await getPublishedBlogBySlug(slug);
 
   if (!post) {
     return {
@@ -51,14 +67,14 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
   const visitorIp = forwardedFor.split(",")[0]?.trim() || headerStore.get("x-real-ip") || "unknown-ip";
   const fingerprint = `${visitorIp}::${userAgent}::${language}`;
 
-  const post = (await registerBlogView(slug, fingerprint)) || (await getBlogBySlug(slug));
+  const post = (await registerBlogView(slug, fingerprint)) || (await getPublishedBlogBySlug(slug));
 
   if (!post) {
     notFound();
   }
 
   const hasRichContent = typeof post.content === "string" && /<\/?[a-z][\s\S]*>/i.test(post.content);
-  const safeContent = sanitizeRichText(post.content || "");
+  const safeContent = normalizeOverlongHeadings(sanitizeRichText(post.content || ""));
 
   return (
     <main>

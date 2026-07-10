@@ -63,11 +63,23 @@ export async function POST(request: NextRequest) {
 
     const uploadResult = await uploadImageToCloudinary(file, safeFolder);
 
+    if (typeof uploadResult?.secure_url !== "string" || !uploadResult.secure_url.includes("res.cloudinary.com")) {
+      return NextResponse.json({ message: "Cloudinary upload returned an invalid URL." }, { status: 502 });
+    }
+
     return NextResponse.json({
       url: uploadResult.secure_url,
       publicId: uploadResult.public_id,
     });
   } catch (error) {
+    const directMessage = error instanceof Error && error.message ? error.message : "";
+    const plainObjectMessage =
+      typeof error === "object" &&
+      error !== null &&
+      "message" in error &&
+      typeof (error as { message?: unknown }).message === "string"
+        ? (error as { message?: string }).message || ""
+        : "";
     const nestedMessage =
       typeof error === "object" &&
       error !== null &&
@@ -78,8 +90,8 @@ export async function POST(request: NextRequest) {
         ? String((error as { error?: { message?: unknown } }).error?.message || "")
         : "";
 
-    const directMessage = error instanceof Error && error.message ? error.message : "";
-    const message = directMessage || nestedMessage || "Failed to upload image.";
-    return NextResponse.json({ message }, { status: 500 });
+    const message = directMessage || plainObjectMessage || nestedMessage || String(error || "") || "Failed to upload image.";
+
+    return NextResponse.json({ message: `Cloudinary upload failed: ${message}` }, { status: 500 });
   }
 }

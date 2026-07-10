@@ -10,8 +10,13 @@ const cleanEnvValue = (value: string | undefined) => {
     return "";
   }
 
-  return value.trim().replace(/^['\"]|['\"]$/g, "");
+  return value
+    .trim()
+    .replace(/^['\"]|['\"]$/g, "")
+    .replace(/\\\$/g, "$");
 };
+
+const normalizeSecretValue = (value: string) => value.replace(/\\\$/g, "$");
 
 const safeTextCompare = (left: string, right: string) => {
   const leftBuffer = Buffer.from(left);
@@ -50,7 +55,7 @@ export const verifyAdminPassword = async ({
   const key = loginAttemptKey(email, ip);
 
   const isEmailMatch = safeTextCompare(normalizeEmail(email), normalizeEmail(adminEmail));
-  const isPasswordMatch = safeTextCompare(password, adminPassword);
+  const isPasswordMatch = safeTextCompare(normalizeSecretValue(password), normalizeSecretValue(adminPassword));
 
   if (!isEmailMatch || !isPasswordMatch) {
     const failedAttempts = await takeRateLimit({

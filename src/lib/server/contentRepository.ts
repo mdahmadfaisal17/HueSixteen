@@ -16,6 +16,18 @@ export type StoredBlog = {
   content: string;
 };
 
+export type StoredBlogSummary = {
+  id?: string;
+  slug: string;
+  title: string;
+  category: string;
+  date: string;
+  views: string;
+  image: string;
+  excerpt: string;
+  status: "Published" | "Draft";
+};
+
 export type StoredPortfolio = {
   _id?: ObjectId;
   title: string;
@@ -177,10 +189,48 @@ export const getBlogs = async () => {
   return docs.map(serialize);
 };
 
+export const getBlogSummaries = async (options?: { publishedOnly?: boolean }): Promise<StoredBlogSummary[]> => {
+  await ensureSeeded();
+  const db = await getDatabase();
+  const publishedOnly = options?.publishedOnly ?? false;
+  const docs = await db
+    .collection<StoredBlog>(BLOGS_COLLECTION)
+    .find(
+      publishedOnly ? { status: "Published" } : {},
+      {
+        projection: {
+          slug: 1,
+          title: 1,
+          category: 1,
+          date: 1,
+          views: 1,
+          image: 1,
+          excerpt: 1,
+          status: 1,
+        },
+      },
+    )
+    .sort({ _id: -1 })
+    .toArray();
+
+  return docs.map((doc) => ({
+    ...(serialize(doc) as Omit<StoredBlogSummary, "excerpt"> & { excerpt?: string }),
+    excerpt: (doc.excerpt || "").trim(),
+  }));
+};
+
 export const getBlogBySlug = async (slug: string) => {
   await ensureSeeded();
   const db = await getDatabase();
   const doc = await db.collection<StoredBlog>(BLOGS_COLLECTION).findOne({ slug });
+
+  return doc ? serialize(doc) : null;
+};
+
+export const getPublishedBlogBySlug = async (slug: string) => {
+  await ensureSeeded();
+  const db = await getDatabase();
+  const doc = await db.collection<StoredBlog>(BLOGS_COLLECTION).findOne({ slug, status: "Published" });
 
   return doc ? serialize(doc) : null;
 };
@@ -198,6 +248,12 @@ export const registerBlogView = async (slug: string, fingerprint: string) => {
   const now = new Date();
   const expiresAt = new Date(now.getTime() + BLOG_VIEW_DEDUPE_WINDOW_MS);
 
+  const publishedBlog = await blogsCollection.findOne({ slug, status: "Published" });
+
+  if (!publishedBlog) {
+    return null;
+  }
+
   const recentView = await blogViewsCollection.findOne({
     slug,
     fingerprint,
@@ -205,7 +261,7 @@ export const registerBlogView = async (slug: string, fingerprint: string) => {
   });
 
   if (recentView) {
-    const existing = await blogsCollection.findOne({ slug });
+    const existing = await blogsCollection.findOne({ slug, status: "Published" });
     return existing ? serialize(existing) : null;
   }
 
@@ -217,7 +273,7 @@ export const registerBlogView = async (slug: string, fingerprint: string) => {
   });
 
   await blogsCollection.updateOne(
-    { slug },
+    { slug, status: "Published" },
     [
       {
         $set: {
@@ -241,7 +297,7 @@ export const registerBlogView = async (slug: string, fingerprint: string) => {
     ],
   );
 
-  const updated = await blogsCollection.findOne({ slug });
+  const updated = await blogsCollection.findOne({ slug, status: "Published" });
   return updated ? serialize(updated) : null;
 };
 

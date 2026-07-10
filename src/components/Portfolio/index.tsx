@@ -1,6 +1,5 @@
 "use client";
 
-import { onlinePresenceList } from "@/app/api/data";
 import type { onlinePresence } from "@/types/menu";
 import Solutions from "@/components/Home/Solution";
 import { fetchPortfoliosCached } from "@/lib/client/portfolioCache";
@@ -17,9 +16,21 @@ const portfolioPills = [
   "Custom Mockups",
 ];
 
-function PortfolioPage() {
+type PortfolioPageProps = {
+  initialProjects?: onlinePresence[];
+};
+
+const optimizeCloudinaryImage = (src: string) => {
+  if (!src.includes("res.cloudinary.com") || !src.includes("/upload/")) {
+    return src;
+  }
+
+  return src.replace("/upload/", "/upload/f_auto,q_auto,w_1200/");
+};
+
+function PortfolioPage({ initialProjects = [] }: PortfolioPageProps) {
   const [activePill, setActivePill] = useState("All");
-  const [portfolioProjects, setPortfolioProjects] = useState<onlinePresence[]>([]);
+  const [portfolioProjects, setPortfolioProjects] = useState<onlinePresence[]>(initialProjects);
 
   const filteredProjects = portfolioProjects.filter((project) => {
     if (activePill === "All") {
@@ -31,6 +42,10 @@ function PortfolioPage() {
   });
 
   useEffect(() => {
+    if (initialProjects.length > 0) {
+      return;
+    }
+
     const loadPortfolios = async () => {
       try {
         const data = await fetchPortfoliosCached();
@@ -66,7 +81,7 @@ function PortfolioPage() {
     };
 
     loadPortfolios();
-  }, []);
+  }, [initialProjects]);
 
   return (
     <main>
@@ -107,12 +122,13 @@ function PortfolioPage() {
               <article key={`${project.title}-${project.image}-${projectIndex}`} className="group flex flex-col gap-6 cursor-pointer">
                 <div className="relative">
                   <Image
-                    src={project.image}
+                    src={optimizeCloudinaryImage(project.image)}
                     alt={project.title}
                     width={625}
                     height={410}
                     className="w-full rounded-2xl"
                     unoptimized={true}
+                    loading={projectIndex < 4 ? "eager" : "lazy"}
                   />
                   <Link
                     href={project.link}
