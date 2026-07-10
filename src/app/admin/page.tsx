@@ -351,6 +351,8 @@ export default function AdminPage() {
   const [portfolioCropPosition, setPortfolioCropPosition] = useState({ x: 0, y: 0 });
   const [portfolioCropZoom, setPortfolioCropZoom] = useState(1);
   const [portfolioCropPixels, setPortfolioCropPixels] = useState<Area | null>(null);
+  const [mediaUploadError, setMediaUploadError] = useState("");
+  const [isMediaUploading, setIsMediaUploading] = useState(false);
   const [blogCardsData, setBlogCardsData] = useState<EditableBlogCard[]>(() =>
     blogPosts.slice(0, 5).map((post) => ({
       slug: post.slug,
@@ -520,6 +522,14 @@ export default function AdminPage() {
     });
 
     if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error("Admin session expired. Please log in again.");
+      }
+
+      if (response.status === 403) {
+        throw new Error("Request blocked by origin policy. Please refresh the page and try again.");
+      }
+
       const data = await response.json().catch(() => null);
       throw new Error(data?.message || "Failed to upload image.");
     }
@@ -541,13 +551,16 @@ export default function AdminPage() {
       return;
     }
 
+    setMediaUploadError("");
+
     try {
       const sourceUrl = await readFileAsDataUrl(file);
       setBlogCropSource(sourceUrl);
       setBlogCropPosition({ x: 0, y: 0 });
       setBlogCropZoom(1);
       setBlogCropPixels(null);
-    } catch {
+    } catch (error) {
+      setMediaUploadError(error instanceof Error ? error.message : "Failed to open image for cropping.");
       return;
     }
   };
@@ -558,6 +571,8 @@ export default function AdminPage() {
     }
 
     try {
+      setMediaUploadError("");
+      setIsMediaUploading(true);
       const croppedBlob = await createCroppedBlogBlob(blogCropSource, blogCropPixels);
       const croppedFile = new File([croppedBlob], `blog-${Date.now()}.jpg`, {
         type: "image/jpeg",
@@ -569,7 +584,11 @@ export default function AdminPage() {
       setBlogCropPixels(null);
       setBlogCropPosition({ x: 0, y: 0 });
       setBlogCropZoom(1);
-    } catch {
+    } catch (error) {
+      setMediaUploadError(error instanceof Error ? error.message : "Failed to crop and upload image.");
+      return;
+    } finally {
+      setIsMediaUploading(false);
       return;
     }
   };
@@ -579,6 +598,7 @@ export default function AdminPage() {
     setBlogCropPixels(null);
     setBlogCropPosition({ x: 0, y: 0 });
     setBlogCropZoom(1);
+    setMediaUploadError("");
   };
 
   const openPortfolioCreate = () => {
@@ -616,6 +636,7 @@ export default function AdminPage() {
     setPortfolioCropPosition({ x: 0, y: 0 });
     setPortfolioCropZoom(1);
     setPortfolioCropPixels(null);
+    setMediaUploadError("");
   };
 
   const handlePortfolioImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -626,13 +647,16 @@ export default function AdminPage() {
       return;
     }
 
+    setMediaUploadError("");
+
     try {
       const sourceUrl = await readFileAsDataUrl(file);
       setPortfolioCropSource(sourceUrl);
       setPortfolioCropPosition({ x: 0, y: 0 });
       setPortfolioCropZoom(1);
       setPortfolioCropPixels(null);
-    } catch {
+    } catch (error) {
+      setMediaUploadError(error instanceof Error ? error.message : "Failed to open image for cropping.");
       return;
     }
   };
@@ -643,6 +667,8 @@ export default function AdminPage() {
     }
 
     try {
+      setMediaUploadError("");
+      setIsMediaUploading(true);
       const croppedBlob = await createCroppedPortfolioBlob(portfolioCropSource, portfolioCropPixels);
       const croppedFile = new File([croppedBlob], `portfolio-${Date.now()}.jpg`, {
         type: "image/jpeg",
@@ -654,7 +680,11 @@ export default function AdminPage() {
       setPortfolioCropPixels(null);
       setPortfolioCropPosition({ x: 0, y: 0 });
       setPortfolioCropZoom(1);
-    } catch {
+    } catch (error) {
+      setMediaUploadError(error instanceof Error ? error.message : "Failed to crop and upload image.");
+      return;
+    } finally {
+      setIsMediaUploading(false);
       return;
     }
   };
@@ -664,6 +694,7 @@ export default function AdminPage() {
     setPortfolioCropPixels(null);
     setPortfolioCropPosition({ x: 0, y: 0 });
     setPortfolioCropZoom(1);
+    setMediaUploadError("");
   };
 
   const handlePortfolioSubmit = async () => {
@@ -796,6 +827,7 @@ export default function AdminPage() {
     setBlogCropPixels(null);
     setBlogCropPosition({ x: 0, y: 0 });
     setBlogCropZoom(1);
+    setMediaUploadError("");
   };
 
   const getActiveEditorElement = () =>
@@ -1485,10 +1517,14 @@ export default function AdminPage() {
               </div>
 
               <div className="mt-5 flex flex-wrap justify-end gap-3 border-t border-slate-200 pt-4">
+                {mediaUploadError && (
+                  <p className="w-full text-sm text-red-600">{mediaUploadError}</p>
+                )}
                 <button
                   type="button"
                   onClick={handlePortfolioCropCancel}
                   className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                  disabled={isMediaUploading}
                 >
                   Cancel
                 </button>
@@ -1496,8 +1532,9 @@ export default function AdminPage() {
                   type="button"
                   onClick={handlePortfolioCropApply}
                   className="rounded-full border border-[#5e53d6] bg-[#5e53d6] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                  disabled={isMediaUploading}
                 >
-                  Crop and use image
+                  {isMediaUploading ? "Uploading..." : "Crop and use image"}
                 </button>
               </div>
             </div>
@@ -1882,10 +1919,14 @@ export default function AdminPage() {
             </div>
 
             <div className="mt-5 flex flex-wrap justify-end gap-3 border-t border-slate-200 pt-4">
+              {mediaUploadError && (
+                <p className="w-full text-sm text-red-600">{mediaUploadError}</p>
+              )}
               <button
                 type="button"
                 onClick={handleBlogCropCancel}
                 className="rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                disabled={isMediaUploading}
               >
                 Cancel
               </button>
@@ -1893,8 +1934,9 @@ export default function AdminPage() {
                 type="button"
                 onClick={handleBlogCropApply}
                 className="rounded-full border border-[#5e53d6] bg-[#5e53d6] px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                disabled={isMediaUploading}
               >
-                Crop and upload
+                {isMediaUploading ? "Uploading..." : "Crop and upload"}
               </button>
             </div>
           </div>
