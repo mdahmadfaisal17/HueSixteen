@@ -6,6 +6,13 @@ import GoogleProvider from "next-auth/providers/google";
 import { getAuthSecret } from "@/lib/server/authSecret";
 
 const hasValue = (value: string | undefined) => typeof value === "string" && value.trim().length > 0;
+const cleanEnvValue = (value: string | undefined) => {
+  if (!value) {
+    return "";
+  }
+
+  return value.trim().replace(/^['\"]|['\"]$/g, "");
+};
 
 const providers: NonNullable<NextAuthOptions["providers"]> = [
   CredentialsProvider({
@@ -15,7 +22,7 @@ const providers: NonNullable<NextAuthOptions["providers"]> = [
       otpLoginToken: { label: "OTP Login Token", type: "text" },
     },
     async authorize(credentials) {
-      const adminEmail = process.env.ADMIN_LOGIN_EMAIL;
+      const adminEmail = cleanEnvValue(process.env.ADMIN_LOGIN_EMAIL);
 
       if (!adminEmail) {
         return null;
