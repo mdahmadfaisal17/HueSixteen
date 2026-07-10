@@ -8,6 +8,25 @@ const ALLOWED_UPLOAD_MIME_TYPES = new Set(["image/jpeg", "image/png", "image/web
 const ALLOWED_UPLOAD_FOLDERS = new Set(["huesixteen", "huesixteen/blogs", "huesixteen/portfolios"]);
 const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
 
+type UploadableImage = {
+  type: string;
+  size: number;
+  arrayBuffer: () => Promise<ArrayBuffer>;
+};
+
+const isUploadableImage = (value: unknown): value is UploadableImage => {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "type" in value &&
+    "size" in value &&
+    "arrayBuffer" in value &&
+    typeof (value as { type?: unknown }).type === "string" &&
+    typeof (value as { size?: unknown }).size === "number" &&
+    typeof (value as { arrayBuffer?: unknown }).arrayBuffer === "function"
+  );
+};
+
 export async function POST(request: NextRequest) {
   const sameOriginResponse = requireSameOrigin(request);
 
@@ -26,7 +45,7 @@ export async function POST(request: NextRequest) {
     const file = formData.get("file");
     const folder = formData.get("folder");
 
-    if (!(file instanceof File)) {
+    if (!isUploadableImage(file)) {
       return NextResponse.json({ message: "Image file is required." }, { status: 400 });
     }
 
@@ -48,7 +67,8 @@ export async function POST(request: NextRequest) {
       url: uploadResult.secure_url,
       publicId: uploadResult.public_id,
     });
-  } catch {
-    return NextResponse.json({ message: "Failed to upload image." }, { status: 500 });
+  } catch (error) {
+    const message = error instanceof Error && error.message ? error.message : "Failed to upload image.";
+    return NextResponse.json({ message }, { status: 500 });
   }
 }

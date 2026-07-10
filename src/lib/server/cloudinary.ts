@@ -14,7 +14,12 @@ cloudinary.config({
   api_secret: apiSecret,
 });
 
-export const uploadImageToCloudinary = async (file: File, folder: string) => {
+type UploadableImage = {
+  type: string;
+  arrayBuffer: () => Promise<ArrayBuffer>;
+};
+
+export const uploadImageToCloudinary = async (file: UploadableImage, folder: string) => {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
   const dataUri = `data:${file.type};base64,${buffer.toString("base64")}`;

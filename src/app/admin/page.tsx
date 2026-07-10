@@ -515,11 +515,13 @@ export default function AdminPage() {
 
     const response = await fetch("/api/uploads/image", {
       method: "POST",
+      credentials: "include",
       body: formData,
     });
 
     if (!response.ok) {
-      throw new Error("Failed to upload image.");
+      const data = await response.json().catch(() => null);
+      throw new Error(data?.message || "Failed to upload image.");
     }
 
     const data = await response.json();
