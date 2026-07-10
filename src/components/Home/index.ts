@@ -1,0 +1,14 @@
+export { default as HeroSection } from "@/components/Home/Hero";
+export { default as Brand } from "@/components/Home/Brand";
+export { default as WebResult } from "@/components/Home/WebResult";
+export { default as Innovation } from "@/components/Home/Innovation";
+export { default as OnlinePresence } from "@/components/Home/OnlinePresence";
+export { default as CreativeMind } from "@/components/Home/CreativeMind";
+export { default as CustomerStories } from "@/components/Home/CustomerStories";
+export { default as Subscription } from "@/components/Home/Subscription";
+export { default as Faq } from "@/components/Home/Faq";
+export { default as OfficeLocation } from "@/components/Home/OfficeLocation";
+export { default as Achievements } from "@/components/Home/Achievements";
+export { default as ProcessSection } from "@/components/Home/ProcessSection";
+export { default as Solutions } from "@/components/Home/Solution";
+export { default as LandingSections } from "@/components/Home/LandingSections";
