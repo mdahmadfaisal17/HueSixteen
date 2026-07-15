@@ -78,7 +78,7 @@ function OnlinePresence() {
                                 return (
                                     <div key={`${items.title}-${items.image}-${index}`} className="group flex flex-col gap-6 cursor-pointer">
                                         <div className="relative ">
-                                            <Image src={items.image} alt={items.title} width={625} height={410} className="rounded-2xl" unoptimized={true} />
+                                            <Image src={items.image} alt={items.title} width={625} height={469} className="rounded-2xl" unoptimized={true} />
 
                                             {/* Overlay div */}
                                             <Link href={items.link} target="_blank" rel="noopener noreferrer" className="absolute top-0 left-0 bg-black bg-opacity-50 w-full h-full rounded-2xl flex items-center justify-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100">

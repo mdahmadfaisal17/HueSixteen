@@ -583,7 +583,7 @@ function ServicePage() {
                 onClick={() => openServiceModal(service)}
                 className={`text-left rounded-3xl overflow-hidden border border-black/10 bg-white hover:shadow-lg transition-shadow duration-300 w-full ${index % 2 === 1 ? "md:translate-y-6" : ""}`}
               >
-                <div className="overflow-hidden aspect-[625/410]">
+                <div className="overflow-hidden aspect-[4/3]">
                   <img
                     src={service.cardImage}
                     alt={service.title}
@@ -660,7 +660,7 @@ function ServicePage() {
 
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-[65%_30%] justify-between gap-6 md:gap-8">
               <div>
-                <div className="overflow-hidden rounded-2xl bg-slate-100 aspect-[625/410] w-full">
+                <div className="overflow-hidden rounded-2xl bg-slate-100 aspect-[4/3] w-full">
                   <img
                     src={activeImage || selectedService.cardImage}
                     alt={`${selectedService.title} preview`}

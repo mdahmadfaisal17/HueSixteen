@@ -86,9 +86,9 @@ const plainToRichHtml = (content: string) => {
     .join("");
 };
 
-const PORTFOLIO_IMAGE_ASPECT_RATIO = 625 / 410;
-const PORTFOLIO_EXPORT_WIDTH = 1250;
-const PORTFOLIO_EXPORT_HEIGHT = 820;
+const PORTFOLIO_IMAGE_ASPECT_RATIO = 4 / 3;
+const PORTFOLIO_EXPORT_WIDTH = 1200;
+const PORTFOLIO_EXPORT_HEIGHT = 900;
 const BLOG_IMAGE_ASPECT_RATIO = 850 / 520;
 const BLOG_EXPORT_WIDTH = 850;
 const BLOG_EXPORT_HEIGHT = 520;
@@ -1223,7 +1223,7 @@ export default function AdminPage() {
               {portfolioCardsData.map((item) => (
                 <article key={item.id || item.title} className="overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.05)]">
                   <div className="grid gap-5 p-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-start">
-                    <div className="relative aspect-[625/410] overflow-hidden rounded-[24px] border border-slate-200 bg-slate-50">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] border border-slate-200 bg-slate-50">
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -1444,9 +1444,9 @@ export default function AdminPage() {
 
               <label className="block rounded-[24px] border border-slate-200 bg-slate-50 p-4 transition hover:border-slate-400">
                 <span className="text-sm font-medium text-slate-700">Upload Image</span>
-                <p className="mt-1 text-xs text-slate-500">Upload any size. Crop tool will force website ratio 625 x 410.</p>
+                <p className="mt-1 text-xs text-slate-500">Upload any size. Crop tool will force 4:3 aspect ratio. <strong>Recommended size: 1200 x 900 px minimum</strong> for best quality.</p>
                 <div className="mt-3 overflow-hidden rounded-[24px] border border-dashed border-slate-300 bg-white">
-                  <div className="relative aspect-[625/410] cursor-pointer bg-slate-50">
+                  <div className="relative aspect-[4/3] cursor-pointer bg-slate-50">
                     <Image
                       src={portfolioFormData.image}
                       alt={portfolioFormData.title || "Portfolio preview"}
@@ -1493,7 +1493,7 @@ export default function AdminPage() {
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Image Crop</p>
                   <h3 className="mt-1 text-xl font-semibold text-slate-900">Crop Portfolio Image</h3>
-                  <p className="mt-1 text-sm text-slate-500">Final output will be 625 x 410 ratio.</p>
+                  <p className="mt-1 text-sm text-slate-500">Final output will be 4:3 aspect ratio (1200 x 900 px) for consistent display across all pages.</p>
                 </div>
               </div>
 
