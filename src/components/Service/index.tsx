@@ -130,9 +130,9 @@ const services: ServiceItem[] = [
       "A strong brand identity does not just make your business look good. It creates trust, increases recognition, and helps customers remember you long after their first interaction.",
     finalCta:
       "Let's build a brand that people recognize, trust, and remember.",
-    cardImage: "https://picsum.photos/id/1025/1200/800",
+    cardImage: "https://res.cloudinary.com/dglcrxfit/image/upload/v1784294456/Logo_Branding_vks9il.jpg",
     galleryImages: [
-      "https://picsum.photos/id/1025/1200/800",
+      "https://res.cloudinary.com/dglcrxfit/image/upload/v1784294456/Logo_Branding_vks9il.jpg",
       "https://picsum.photos/id/1015/1200/800",
       "https://picsum.photos/id/1005/1200/800",
       "https://picsum.photos/id/106/1200/800",
@@ -223,9 +223,9 @@ const services: ServiceItem[] = [
     ],
     finalNote:
       "Great content deserves great design. We help your brand communicate professionally and consistently across every social platform.",
-    cardImage: "https://picsum.photos/id/1011/1200/800",
+    cardImage: "https://res.cloudinary.com/dglcrxfit/image/upload/v1784295614/Social-Media-Design_wnh4eo.jpg",
     galleryImages: [
-      "https://picsum.photos/id/1011/1200/800",
+      "https://res.cloudinary.com/dglcrxfit/image/upload/v1784295614/Social-Media-Design_wnh4eo.jpg",
       "https://picsum.photos/id/1021/1200/800",
       "https://picsum.photos/id/1027/1200/800",
       "https://picsum.photos/id/1035/1200/800",
@@ -316,9 +316,9 @@ const services: ServiceItem[] = [
     ],
     finalNote:
       "A well-branded event creates memorable experiences that people recognize, remember, and talk about long after it ends.",
-    cardImage: "https://picsum.photos/id/1003/1200/800",
+    cardImage: "https://res.cloudinary.com/dglcrxfit/image/upload/v1784296848/Event-Branding_tneewi.jpg",
     galleryImages: [
-      "https://picsum.photos/id/1003/1200/800",
+      "https://res.cloudinary.com/dglcrxfit/image/upload/v1784296848/Event-Branding_tneewi.jpg",
       "https://picsum.photos/id/1033/1200/800",
       "https://picsum.photos/id/1037/1200/800",
     ],
@@ -409,9 +409,9 @@ const services: ServiceItem[] = [
     ],
     finalNote:
       "A great product deserves an equally impressive presentation. Our 3D mockups help your products stand out, communicate quality, and make a stronger first impression.",
-    cardImage: "https://picsum.photos/id/1006/1200/800",
+    cardImage: "https://res.cloudinary.com/dglcrxfit/image/upload/v1784296845/Mockup_odf2t3.jpg",
     galleryImages: [
-      "https://picsum.photos/id/1006/1200/800",
+      "https://res.cloudinary.com/dglcrxfit/image/upload/v1784296845/Mockup_odf2t3.jpg",
       "https://picsum.photos/id/1060/1200/800",
       "https://picsum.photos/id/1062/1200/800",
       "https://picsum.photos/id/1066/1200/800",
