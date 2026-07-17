@@ -59,9 +59,11 @@ const Footer = () => {
               <p className='text-dark_black opacity-60 hover:text-black hover:opacity-100 dark:hover:text-white'>
                 <Link href={`mailto:${footerData.contactDetails.email}`} >{footerData.contactDetails.email}</Link>
               </p>
-              <p className='text-dark_black opacity-60 hover:text-black hover:opacity-100 dark:hover:text-white'>
-                <Link href={`tel:${footerData.contactDetails.phone}`} >{footerData.contactDetails.phone}</Link>
-              </p>
+              {footerData.contactDetails.phone && (
+                <p className='text-dark_black opacity-60 hover:text-black hover:opacity-100 dark:hover:text-white'>
+                  <Link href={`tel:${footerData.contactDetails.phone}`} >{footerData.contactDetails.phone}</Link>
+                </p>
+              )}
             </div>
           </div>
         </div>

@@ -48,7 +48,7 @@ export const footerData = {
         name:"Contact Details",
         address: "huesixteen.com",
         email: "huesixteen@gmail.com",
-        phone: "0105 192 3556"
+        phone: ""
     },
     copyright: "©2026 Hue Sixteen. All Rights Reserved"
 };

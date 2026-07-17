@@ -792,12 +792,12 @@ function ServicePage() {
                   </div>
 
                   <div className="mt-6 flex flex-col gap-3">
-                    <button
-                      type="button"
-                      className="w-full rounded-full border border-black px-5 py-3 text-sm hover:bg-black hover:text-white transition-colors"
+                    <Link
+                      href="/pricing"
+                      className="w-full rounded-full border border-black px-5 py-3 text-sm hover:bg-black hover:text-white transition-colors inline-flex justify-center"
                     >
                       See pricing
-                    </button>
+                    </Link>
                     <Link
                       href="/contact"
                       className="w-full rounded-full bg-purple_blue text-white px-5 py-3 text-sm hover:opacity-90 transition-colors inline-flex justify-center"

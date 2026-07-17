@@ -183,7 +183,7 @@ function Subscription() {
                         </div>
                         <div className="flex justify-end -my-8 md:-my-12 p-0">
                             <Link
-                                href="/contact"
+                                href="/pricing"
                                 className="p-0 m-0 leading-none text-dark_black font-medium hover:text-purple_blue transition-colors duration-200"
                             >
                                 View Full Pricing
